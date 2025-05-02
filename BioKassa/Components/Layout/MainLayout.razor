@@ -1,0 +1,33 @@
+﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+
+<head>
+    <link href="css/bio-kassa.css" rel="stylesheet" />
+    <link href="css/product-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <title>Bibblix</title>
+</head>
+
+<div class="page">
+    <main>
+        <div class="top-row px-4">
+            <div class="logo-container">
+                <div class="bibblix-logo">
+                    <span class="logo-text">Bibblix</span>
+                    <span class="logo-icon">🎬</span>
+                </div>
+            </div>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    Ett fel inträffade.
+    <a href="." class="reload">Ladda om</a>
+    <span class="dismiss">🗙</span>
+</div>

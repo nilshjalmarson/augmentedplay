@@ -1,0 +1,339 @@
+.bio-kassa-container {
+    font-family: 'Quicksand', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.category-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.category-tab {
+    background-color: #e2f0cb; /* Ljusgrön pastell */
+    color: #6a4c93; /* Lila text */
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-size: 20px;
+    margin: 5px;
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    min-width: 150px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+.category-tab.active {
+    background-color: #b5deff; /* Ljusblå pastell */
+    color: #6a4c93;
+}
+
+.category-tab:hover {
+    background-color: #ffdde1; /* Rosa pastell */
+    transform: translateY(-3px);
+}
+
+.category-tab.active:hover {
+    background-color: #9bccff; /* Mörkare blå */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.product-card {
+    padding: 15px;
+    border-radius: 18px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    background-color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid rgba(106, 76, 147, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    border-color: #ffb6c1;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #6a4c93;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #ff8ba7;
+    font-weight: bold;
+}
+
+.cart-container {
+    background-color: #ffdde1; /* Rosa pastell */
+    padding: 20px;
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.cart-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 2px dashed #b5deff;
+    padding-bottom: 10px;
+    color: #6a4c93;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 1fr 120px 100px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ffcae9;
+    gap: 10px;
+}
+
+.cart-item-name {
+    font-size: 18px;
+    color: #6a4c93;
+    padding-right: 10px;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.cart-quantity {
+    margin: 0 10px;
+    font-size: 18px;
+    min-width: 30px;
+    text-align: center;
+    color: #6a4c93;
+}
+
+.cart-quantity-btn {
+    background-color: #b5deff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6a4c93;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.cart-quantity-btn:hover {
+    background-color: #9bccff;
+    transform: scale(1.1);
+}
+
+.cart-item-price {
+    font-size: 18px;
+    min-width: 80px;
+    text-align: right;
+    color: #ff8ba7;
+    font-weight: bold;
+    justify-self: end;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px dashed #b5deff;
+    color: #6a4c93;
+}
+
+.action-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    font-family: 'Quicksand', sans-serif;
+}
+
+.btn-pay {
+    background-color: #c4f4c7; /* Mintgrön pastell */
+    color: #6a4c93;
+}
+
+.btn-pay:hover {
+    background-color: #a7e8ab;
+    transform: translateY(-3px);
+}
+
+.btn-clear {
+    background-color: #ffcae9; /* Rosa pastell */
+    color: #6a4c93;
+}
+
+.btn-clear:hover {
+    background-color: #ffb6d9;
+    transform: translateY(-3px);
+}
+
+/* För iPad-optimering */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .category-tab {
+        padding: 20px 25px;
+        font-size: 22px;
+    }
+    
+    .cart-item-controls {
+        gap: 15px;
+    }
+    
+    .cart-quantity-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .action-button {
+        padding: 20px;
+        font-size: 24px;
+    }
+}
+
+/* Modal för kvitto */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1050;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dialog {
+    max-width: 500px;
+    width: 100%;
+    margin: 1.75rem auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fdf6fa;
+    border-radius: 18px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+    border: 3px solid #ffcae9;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 2px dashed #b5deff;
+    background-color: #ffcae9;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #6a4c93;
+    font-family: 'Pacifico', cursive;
+}
+
+.btn-close {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6a4c93;
+}
+
+.modal-body {
+    padding: 20px;
+    color: #6a4c93;
+}
+
+.modal-body h4 {
+    font-family: 'Pacifico', cursive;
+    color: #ff8ba7;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 2px dashed #b5deff;
+}
+
+.btn-primary {
+    background-color: #b5deff;
+    color: #6a4c93;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: 'Quicksand', sans-serif;
+}
+
+.btn-primary:hover {
+    background-color: #9bccff;
+    transform: translateY(-3px);
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
