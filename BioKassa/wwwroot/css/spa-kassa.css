@@ -1,3 +1,30 @@
+.spa-subnav {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.spa-subnav-btn {
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 1.5rem;
+    background: #e7d7d2;
+    color: #4f3c3c;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.spa-subnav-btn.active {
+    background: linear-gradient(90deg, #9cd3d8, #f7b2c8);
+    color: #3c3030;
+}
+
+.spa-subnav-btn:disabled {
+    cursor: default;
+    opacity: 0.9;
+}
+
 .spa-kassa-wrapper {
     display: flex;
     gap: 2rem;
@@ -220,8 +247,139 @@
     margin-top: 1rem;
     padding: 0.8rem 1rem;
     border-radius: 12px;
+.staff-admin {
+    display: grid;
+    grid-template-columns: minmax(280px, 380px) 1fr;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.staff-card {
+    border: 1px solid rgba(159, 125, 125, 0.2);
+    border-radius: 16px;
+    padding: 1rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.staff-card-header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.staff-avatar {
+    font-size: 2.5rem;
+}
+
+.staff-name {
+    font-weight: 700;
+    color: #4f3c3c;
+}
+
+.staff-role {
+    color: #8f7d7d;
+    font-size: 0.9rem;
+}
+
+.staff-competences {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.staff-chip {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: #f3d3cb;
+    font-size: 0.8rem;
+    color: #4f3c3c;
+}
+
+.staff-actions,
+.staff-edit-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.staff-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem 0.9rem;
+    background: #e7d7d2;
+    color: #4f3c3c;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.staff-btn.danger {
+    background: #ffd1d1;
+    color: #7a2424;
+}
+
+.staff-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.staff-edit-actions .spa-book-button {
+    flex: 1 1 200px;
+}
+
     background: #ffe3e3;
     color: #813d3d;
+}
+
+.spa-add-staff {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .staff-admin {
+        grid-template-columns: 1fr;
+    }
+}
+
+.spa-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+}
+
+.spa-input input {
+    border-radius: 10px;
+    border: 1px solid #e7d7d2;
+    padding: 0.5rem;
+}
+
+.spa-competence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.spa-checkbox {
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(159, 125, 125, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
 }
 
 @media (max-width: 900px) {

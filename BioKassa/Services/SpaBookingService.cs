@@ -115,6 +115,8 @@ public class SpaBookingService
 
     public IReadOnlyList<Behandling> HämtaBehandlingar() => _behandlingar;
 
+    public IReadOnlyList<SpaAnställd> HämtaAllaAnställda() => _anställda;
+
     public IReadOnlyList<SpaAnställd> HämtaAnställdaFörBehandling(int behandlingId)
     {
         var behandling = _behandlingar.FirstOrDefault(b => b.Id == behandlingId);
@@ -170,6 +172,66 @@ public class SpaBookingService
                 Pris = item.Pris
             });
         }
+    }
+
+    public SpaAnställd LäggTillAnställd(string namn, string roll, IEnumerable<BehandlingTyp> kompetenser, string avatar)
+    {
+        if (string.IsNullOrWhiteSpace(namn))
+        {
+            throw new ArgumentException("Namn måste anges", nameof(namn));
+        }
+
+        var kompetensLista = kompetenser?.Distinct().ToList() ?? new List<BehandlingTyp>();
+        if (!kompetensLista.Any())
+        {
+            throw new ArgumentException("Minst en behandlingstyp måste väljas", nameof(kompetenser));
+        }
+
+        var nyttId = _anställda.Any() ? _anställda.Max(a => a.Id) + 1 : 1;
+        var anställd = new SpaAnställd
+        {
+            Id = nyttId,
+            Namn = namn.Trim(),
+            Roll = string.IsNullOrWhiteSpace(roll) ? "Behandlare" : roll.Trim(),
+            Avatar = string.IsNullOrWhiteSpace(avatar) ? "🙂" : avatar.Trim(),
+            Kompetenser = kompetensLista
+        };
+
+        _anställda.Add(anställd);
+        return anställd;
+    }
+
+    public SpaAnställd UppdateraAnställd(int id, string namn, string roll, IEnumerable<BehandlingTyp> kompetenser, string avatar)
+    {
+        var anställd = _anställda.FirstOrDefault(a => a.Id == id)
+            ?? throw new ArgumentException($"Ingen anställd med id {id} hittades", nameof(id));
+
+        if (string.IsNullOrWhiteSpace(namn))
+        {
+            throw new ArgumentException("Namn måste anges", nameof(namn));
+        }
+
+        var kompetensLista = kompetenser?.Distinct().ToList() ?? new List<BehandlingTyp>();
+        if (!kompetensLista.Any())
+        {
+            throw new ArgumentException("Minst en behandlingstyp måste väljas", nameof(kompetenser));
+        }
+
+        anställd.Namn = namn.Trim();
+        anställd.Roll = string.IsNullOrWhiteSpace(roll) ? "Behandlare" : roll.Trim();
+        anställd.Avatar = string.IsNullOrWhiteSpace(avatar) ? "🙂" : avatar.Trim();
+        anställd.Kompetenser = kompetensLista;
+
+        return anställd;
+    }
+
+    public void TaBortAnställd(int id)
+    {
+        var anställd = _anställda.FirstOrDefault(a => a.Id == id)
+            ?? throw new ArgumentException($"Ingen anställd med id {id} hittades", nameof(id));
+
+        _anställda.Remove(anställd);
+        _bokadeTider.RemoveAll(b => b.Anställd.Id == id);
     }
 
     private bool ÄrSlotLedig(int anställdId, DateTime start, DateTime slut)

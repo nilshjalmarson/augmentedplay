@@ -7,6 +7,12 @@
 @rendermode InteractiveServer
 @inject SpaBookingService SpaBookingService
 @inject SpaKassa SpaKassa
+@inject NavigationManager Navigation
+
+<div class="spa-subnav">
+    <button class="spa-subnav-btn active" disabled>Spa-kassa</button>
+    <button class="spa-subnav-btn" @onclick='() => Navigation.NavigateTo("/personal")'>Hantera personal</button>
+</div>
 
 <div class="spa-kassa-wrapper">
     <div class="spa-columns">
@@ -79,6 +85,13 @@
                     }
                 </div>
             }
+        </section>
+
+        <section class="spa-panel">
+            <h2>Behöver ni fler behandlare?</h2>
+            <p class="spa-muted">
+                Lägg till, redigera eller ta bort personal på sidan <a href="/personal">Personal</a>.
+            </p>
         </section>
     </div>
 
@@ -275,4 +288,5 @@
     }
 
     private string FormatPris(decimal pris) => pris.ToString("0.00 'kr'", CultureInfo.GetCultureInfo("sv-SE"));
+
 }

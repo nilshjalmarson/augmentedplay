@@ -6,7 +6,7 @@
     <div class="start-header">
         <p class="start-eyebrow">Välkommen till Bibblix spelhörna</p>
         <h1>Vad vill ni leka idag?</h1>
-        <p>Välj mellan den klassiska biokassan eller den nya spa-kassan med bokningssystem.</p>
+        <p>Välj mellan biokassan, spa-kassan eller personalverktyget för att ordna behandlare.</p>
     </div>
 
     <div class="start-options">
@@ -22,6 +22,13 @@
             <h2>Spa</h2>
             <p>Boka behandlingar, välj behandlare och håll koll på tider och kvitton.</p>
             <button class="start-button" @onclick='() => GåTill("/spa")'>Öppna spa-kassan</button>
+        </div>
+
+        <div class="start-card">
+            <div class="start-icon">🧑‍⚕️</div>
+            <h2>Personal</h2>
+            <p>Lägg till, redigera eller ta bort behandlare och bestäm vilka behandlingar de kan göra.</p>
+            <button class="start-button" @onclick='() => GåTill("/personal")'>Hantera personal</button>
         </div>
     </div>
 </div>

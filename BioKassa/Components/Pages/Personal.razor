@@ -1,0 +1,277 @@
+@page "/personal"
+@using System.Linq
+@using BioKassa.Models
+@using BioKassa.Services
+@rendermode InteractiveServer
+@inject SpaBookingService SpaBookingService
+@inject NavigationManager Navigation
+
+<div class="spa-subnav">
+    <button class="spa-subnav-btn" @onclick='() => Navigation.NavigateTo("/spa")'>Spa-kassa</button>
+    <button class="spa-subnav-btn active" disabled>Personal</button>
+</div>
+
+<div class="staff-admin">
+    <section class="spa-panel staff-form">
+        <h2>Lägg till ny behandlare</h2>
+        <div class="spa-input">
+            <label for="staff-new-name">Namn</label>
+            <input id="staff-new-name" @bind="nyForm.Namn" />
+        </div>
+        <div class="spa-input">
+            <label for="staff-new-role">Roll/beskrivning</label>
+            <input id="staff-new-role" @bind="nyForm.Roll" placeholder="Hudterapeut" />
+        </div>
+        <div class="spa-input">
+            <label for="staff-new-avatar">Emoji/ikon</label>
+            <input id="staff-new-avatar" @bind="nyForm.Avatar" maxlength="4" />
+        </div>
+
+        <div class="spa-competence-grid">
+            @foreach (var val in nyForm.Kompetenser)
+            {
+                <label class="spa-checkbox">
+                    <input type="checkbox" @bind="val.Vald" />
+                    <span>@val.Namn</span>
+                </label>
+            }
+        </div>
+
+        <button class="spa-book-button" type="button" @onclick="SkapaNy">Lägg till</button>
+        @if (!string.IsNullOrWhiteSpace(felNytt))
+        {
+            <div class="spa-alert">@felNytt</div>
+        }
+    </section>
+
+    <section class="spa-panel staff-list">
+        <h2>Befintlig personal</h2>
+        @if (!anställda.Any())
+        {
+            <p class="spa-muted">Inga behandlare tillagda ännu.</p>
+        }
+        else
+        {
+            <div class="staff-grid">
+                @foreach (var person in anställda)
+                {
+                    <div class="staff-card">
+                        <div class="staff-card-header">
+                            <div class="staff-avatar">@person.Avatar</div>
+                            <div>
+                                <div class="staff-name">@person.Namn</div>
+                                <div class="staff-role">@person.Roll</div>
+                            </div>
+                        </div>
+                        <div class="staff-competences">
+                            @foreach (var typ in person.Kompetenser)
+                            {
+                                <span class="staff-chip">@FormatBehandlingTyp(typ)</span>
+                            }
+                        </div>
+                        <div class="staff-actions">
+                            <button type="button" class="staff-btn" @onclick="() => StartaRedigering(person.Id)">Redigera</button>
+                            <button type="button" class="staff-btn danger" @onclick="() => TaBort(person.Id)">Ta bort</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </section>
+</div>
+
+@if (editForm is not null && redigeradId is not null)
+{
+    <section class="spa-panel staff-form">
+        <h2>Redigera @editOriginalNamn</h2>
+        <div class="spa-input">
+            <label for="staff-edit-name">Namn</label>
+            <input id="staff-edit-name" @bind="editForm.Namn" />
+        </div>
+        <div class="spa-input">
+            <label for="staff-edit-role">Roll/beskrivning</label>
+            <input id="staff-edit-role" @bind="editForm.Roll" />
+        </div>
+        <div class="spa-input">
+            <label for="staff-edit-avatar">Emoji/ikon</label>
+            <input id="staff-edit-avatar" @bind="editForm.Avatar" maxlength="4" />
+        </div>
+
+        <div class="spa-competence-grid">
+            @foreach (var val in editForm.Kompetenser)
+            {
+                <label class="spa-checkbox">
+                    <input type="checkbox" @bind="val.Vald" />
+                    <span>@val.Namn</span>
+                </label>
+            }
+        </div>
+
+        <div class="staff-edit-actions">
+            <button class="spa-book-button" type="button" @onclick="SparaRedigering">Spara</button>
+            <button class="staff-btn" type="button" @onclick="AvbrytRedigering">Avbryt</button>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(felRedigering))
+        {
+            <div class="spa-alert">@felRedigering</div>
+        }
+    </section>
+}
+
+@code {
+    private List<SpaAnställd> anställda = new();
+    private StaffFormModel nyForm = StaffFormModel.SkapaTom();
+    private StaffFormModel? editForm;
+    private int? redigeradId;
+    private string editOriginalNamn = string.Empty;
+    private string? felNytt;
+    private string? felRedigering;
+
+    protected override void OnInitialized()
+    {
+        LaddaPersonal();
+    }
+
+    private void LaddaPersonal()
+    {
+        anställda = SpaBookingService
+            .HämtaAllaAnställda()
+            .OrderBy(p => p.Namn)
+            .ToList();
+    }
+
+    private void SkapaNy()
+    {
+        var valdaTyper = nyForm.HämtaValdaTyper().ToList();
+        if (!valdaTyper.Any())
+        {
+            felNytt = "Välj minst en behandling.";
+            return;
+        }
+
+        try
+        {
+            SpaBookingService.LäggTillAnställd(nyForm.Namn, nyForm.Roll, valdaTyper, nyForm.Avatar);
+            nyForm = StaffFormModel.SkapaTom();
+            felNytt = null;
+            LaddaPersonal();
+        }
+        catch (ArgumentException ex)
+        {
+            felNytt = ex.Message;
+        }
+    }
+
+    private void StartaRedigering(int id)
+    {
+        var person = anställda.FirstOrDefault(p => p.Id == id);
+        if (person is null)
+        {
+            return;
+        }
+
+        redigeradId = id;
+        editForm = StaffFormModel.Från(person);
+        editOriginalNamn = person.Namn;
+        felRedigering = null;
+    }
+
+    private void SparaRedigering()
+    {
+        if (redigeradId is null || editForm is null)
+        {
+            return;
+        }
+
+        var valdaTyper = editForm.HämtaValdaTyper().ToList();
+        if (!valdaTyper.Any())
+        {
+            felRedigering = "Välj minst en behandling.";
+            return;
+        }
+
+        try
+        {
+            SpaBookingService.UppdateraAnställd(redigeradId.Value, editForm.Namn, editForm.Roll, valdaTyper, editForm.Avatar);
+            felRedigering = null;
+            AvbrytRedigering();
+            LaddaPersonal();
+        }
+        catch (ArgumentException ex)
+        {
+            felRedigering = ex.Message;
+        }
+    }
+
+    private void TaBort(int id)
+    {
+        SpaBookingService.TaBortAnställd(id);
+        if (redigeradId == id)
+        {
+            AvbrytRedigering();
+        }
+        LaddaPersonal();
+    }
+
+    private void AvbrytRedigering()
+    {
+        redigeradId = null;
+        editForm = null;
+        editOriginalNamn = string.Empty;
+    }
+
+    private static string FormatBehandlingTyp(BehandlingTyp typ) => typ switch
+    {
+        BehandlingTyp.Ansiktsbehandling => "Ansiktsbehandling",
+        BehandlingTyp.Massage => "Massage",
+        BehandlingTyp.Bubbelpool => "Bubbelpool",
+        BehandlingTyp.Pedikyr => "Pedikyr",
+        BehandlingTyp.Manikyr => "Manikyr",
+        BehandlingTyp.Hårbehandling => "Hårbehandling",
+        _ => typ.ToString()
+    };
+
+    private static List<KompetensVal> SkapaKompetensVal(IEnumerable<BehandlingTyp>? valda)
+    {
+        var valdaSet = valda?.ToHashSet() ?? new HashSet<BehandlingTyp>();
+        return Enum.GetValues<BehandlingTyp>()
+            .Select(typ => new KompetensVal
+            {
+                Typ = typ,
+                Namn = FormatBehandlingTyp(typ),
+                Vald = valdaSet.Contains(typ)
+            })
+            .ToList();
+    }
+
+    private sealed class StaffFormModel
+    {
+        public string Namn { get; set; } = string.Empty;
+        public string Roll { get; set; } = string.Empty;
+        public string Avatar { get; set; } = "🙂";
+        public List<KompetensVal> Kompetenser { get; set; } = new();
+
+        public IEnumerable<BehandlingTyp> HämtaValdaTyper() => Kompetenser.Where(k => k.Vald).Select(k => k.Typ);
+
+        public static StaffFormModel SkapaTom() => new()
+        {
+            Kompetenser = SkapaKompetensVal(null)
+        };
+
+        public static StaffFormModel Från(SpaAnställd person) => new()
+        {
+            Namn = person.Namn,
+            Roll = person.Roll,
+            Avatar = person.Avatar,
+            Kompetenser = SkapaKompetensVal(person.Kompetenser)
+        };
+    }
+
+    private sealed class KompetensVal
+    {
+        public BehandlingTyp Typ { get; init; }
+        public string Namn { get; init; } = string.Empty;
+        public bool Vald { get; set; }
+    }
+}
