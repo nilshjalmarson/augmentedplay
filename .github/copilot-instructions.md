@@ -11,5 +11,5 @@ Man kan göra följande:
   * dricka. Cola, Fanta eller Äppeljuci i storlekarna liten, mellan eller stor.
   * chips i olika smaker
   * godis
-n
-  När du lägger till eller förändrar funktionerna i systemet så uppdatera denna fil så att du hela tiden har en uppdaterad beskrivning på vad vi håller på med.
+
+  När du lägger till eller förändrar funktionerna i systemet så uppdaterar copilot-instructions.md så att du hela tiden har en uppdaterad beskrivning på vad vi håller på med.

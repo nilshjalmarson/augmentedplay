@@ -1,0 +1,278 @@
+@page "/spa"
+@using System
+@using System.Globalization
+@using System.Linq
+@using BioKassa.Models
+@using BioKassa.Services
+@rendermode InteractiveServer
+@inject SpaBookingService SpaBookingService
+@inject SpaKassa SpaKassa
+
+<div class="spa-kassa-wrapper">
+    <div class="spa-columns">
+        <section class="spa-panel">
+            <h2>1. Välj behandling</h2>
+            <div class="spa-card-grid">
+                @foreach (var behandling in behandlingar)
+                {
+                    <button class="spa-card @(valdBehandling?.Id == behandling.Id ? "active" : string.Empty)"
+                            @onclick="() => VäljBehandling(behandling)">
+                        <div class="spa-card-icon">@behandling.Ikon</div>
+                        <div class="spa-card-name">@behandling.Namn</div>
+                        <div class="spa-card-desc">@behandling.Beskrivning</div>
+                        <div class="spa-card-meta">
+                            <span>@(behandling.Varaktighet.TotalMinutes) min</span>
+                            <span>@FormatPris(behandling.Pris)</span>
+                        </div>
+                    </button>
+                }
+            </div>
+        </section>
+
+        <section class="spa-panel">
+            <h2>2. Behandlare & datum</h2>
+            @if (valdBehandling is null)
+            {
+                <p class="spa-muted">Välj en behandling för att se vilka som kan utföra den.</p>
+            }
+            else
+            {
+                <div class="spa-employee-grid">
+                    @foreach (var anställd in anställdaFörValdBehandling)
+                    {
+                        <button class="spa-employee @(valdAnställd?.Id == anställd.Id ? "active" : string.Empty)"
+                                @onclick="() => VäljAnställd(anställd)">
+                            <div class="spa-employee-avatar">@anställd.Avatar</div>
+                            <div>
+                                <div class="spa-employee-name">@anställd.Namn</div>
+                                <div class="spa-employee-role">@anställd.Roll</div>
+                            </div>
+                        </button>
+                    }
+                </div>
+
+                <div class="spa-date-picker">
+                    <label for="date-input">Datum</label>
+                    <input id="date-input" type="date" value="@valdDatum.ToString("yyyy-MM-dd")" @onchange="DatumÄndrat" />
+                </div>
+            }
+        </section>
+
+        <section class="spa-panel">
+            <h2>3. Lediga tider</h2>
+            @if (valdBehandling is null || valdAnställd is null)
+            {
+                <p class="spa-muted">Välj behandling och behandlare för att visa lediga tider.</p>
+            }
+            else if (!tillgängligaSlots.Any())
+            {
+                <p class="spa-muted">Inga tider lediga denna dag. Prova ett annat datum.</p>
+            }
+            else
+            {
+                <div class="spa-slot-grid">
+                    @foreach (var slot in tillgängligaSlots)
+                    {
+                        <button class="spa-slot" @onclick="() => LäggTillBokning(slot)">
+                            @slot.ToString("HH:mm")
+                        </button>
+                    }
+                </div>
+            }
+        </section>
+    </div>
+
+    <aside class="spa-cart">
+        <div class="cart-title">Spa-kassa</div>
+
+        @if (!SpaKassa.Items.Any())
+        {
+            <p class="spa-muted">Börja med att lägga till en tid.</p>
+        }
+        else
+        {
+            @foreach (var item in SpaKassa.Items)
+            {
+                <div class="spa-cart-item">
+                    <div>
+                        <div class="spa-cart-name">@item.Behandling.Namn</div>
+                        <div class="spa-cart-meta">@item.Start:ddd d MMM HH:mm · @item.Anställd.Namn</div>
+                    </div>
+                    <div class="spa-cart-actions">
+                        <span class="spa-cart-price">@FormatPris(item.Pris)</span>
+                        <button class="spa-remove" title="Ta bort" @onclick="() => TaBort(item.Id)">×</button>
+                    </div>
+                </div>
+            }
+
+            <div class="spa-cart-total">
+                <span>Totalt</span>
+                <strong>@FormatPris(SpaKassa.Totalsumma)</strong>
+            </div>
+
+            <button class="spa-book-button" @onclick="BokaTider">Boka tider</button>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(felmeddelande))
+        {
+            <div class="spa-alert">@felmeddelande</div>
+        }
+    </aside>
+</div>
+
+@if (visaKvitto)
+{
+    <div class="modal" style="display: block; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bokningsbekräftelse</h5>
+                    <button type="button" class="btn-close" @onclick="StängKvitto"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Ha en avkopplande stund!</h4>
+                    <p>Datum: @DateTime.Now.ToString("yyyy-MM-dd HH:mm")</p>
+                    <hr />
+                    @foreach (var item in kvittoItems)
+                    {
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>@item.Behandling.Namn · @item.Start:ddd HH:mm med @item.Anställd.Namn</span>
+                            <span>@FormatPris(item.Pris)</span>
+                        </div>
+                    }
+                    <hr />
+                    <div class="d-flex justify-content-between fw-bold">
+                        <span>Totalt:</span>
+                        <span>@FormatPris(kvittoSumma)</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" @onclick="StängKvitto">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private readonly List<Behandling> behandlingar = new();
+    private List<SpaAnställd> anställdaFörValdBehandling = new();
+    private List<DateTime> tillgängligaSlots = new();
+    private Behandling? valdBehandling;
+    private SpaAnställd? valdAnställd;
+    private DateOnly valdDatum = DateOnly.FromDateTime(DateTime.Today);
+    private string? felmeddelande;
+    private bool visaKvitto;
+    private List<SpaKassaItem> kvittoItems = new();
+    private decimal kvittoSumma;
+
+    protected override void OnInitialized()
+    {
+        behandlingar.AddRange(SpaBookingService.HämtaBehandlingar());
+    }
+
+    private void VäljBehandling(Behandling behandling)
+    {
+        valdBehandling = behandling;
+        valdAnställd = null;
+        anställdaFörValdBehandling = SpaBookingService.HämtaAnställdaFörBehandling(behandling.Id).ToList();
+        tillgängligaSlots.Clear();
+        felmeddelande = null;
+    }
+
+    private void VäljAnställd(SpaAnställd anställd)
+    {
+        valdAnställd = anställd;
+        felmeddelande = null;
+        LaddaSlots();
+    }
+
+    private void DatumÄndrat(ChangeEventArgs args)
+    {
+        if (DateTime.TryParse(args.Value?.ToString(), out var nyttDatum))
+        {
+            valdDatum = DateOnly.FromDateTime(nyttDatum);
+            LaddaSlots();
+        }
+    }
+
+    private void LaddaSlots()
+    {
+        if (valdBehandling is null || valdAnställd is null)
+        {
+            tillgängligaSlots.Clear();
+            return;
+        }
+
+        var slots = SpaBookingService
+            .HämtaTillgängligaSlots(valdDatum, valdBehandling.Id, valdAnställd.Id)
+            .Where(slot => !SpaKassa.Items.Any(item => item.Anställd.Id == valdAnställd.Id && slot < item.Slut && slot + valdBehandling.Varaktighet > item.Start))
+            .ToList();
+
+        tillgängligaSlots = slots;
+    }
+
+    private void LäggTillBokning(DateTime startTid)
+    {
+        if (valdBehandling is null || valdAnställd is null)
+        {
+            return;
+        }
+
+        try
+        {
+            var item = new SpaKassaItem
+            {
+                Behandling = valdBehandling,
+                Anställd = valdAnställd,
+                Start = startTid
+            };
+
+            SpaKassa.LäggTill(item);
+            felmeddelande = null;
+            LaddaSlots();
+        }
+        catch (InvalidOperationException ex)
+        {
+            felmeddelande = ex.Message;
+        }
+    }
+
+    private void TaBort(Guid id)
+    {
+        SpaKassa.TaBort(id);
+        LaddaSlots();
+    }
+
+    private void BokaTider()
+    {
+        if (!SpaKassa.Items.Any())
+        {
+            felmeddelande = "Lägg till minst en bokning.";
+            return;
+        }
+
+        try
+        {
+            var kopia = SpaKassa.Items.ToList();
+            SpaBookingService.BekräftaBokningar(kopia);
+            kvittoItems = kopia;
+            kvittoSumma = kopia.Sum(i => i.Pris);
+            SpaKassa.Rensa();
+            visaKvitto = true;
+            tillgängligaSlots.Clear();
+            felmeddelande = null;
+        }
+        catch (InvalidOperationException ex)
+        {
+            felmeddelande = ex.Message;
+        }
+    }
+
+    private void StängKvitto()
+    {
+        visaKvitto = false;
+    }
+
+    private string FormatPris(decimal pris) => pris.ToString("0.00 'kr'", CultureInfo.GetCultureInfo("sv-SE"));
+}

@@ -58,3 +58,56 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+.start-screen {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.start-header h1 {
+    font-family: 'Pacifico', cursive;
+    color: #6a4c93;
+    margin-bottom: 0.5rem;
+}
+
+.start-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #6a4c93;
+    font-weight: 700;
+}
+
+.start-options {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.start-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+    border: 2px solid rgba(106, 76, 147, 0.1);
+}
+
+.start-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.start-button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 25px;
+    border: none;
+    font-weight: 700;
+    background: linear-gradient(120deg, #ffcae9, #b5deff);
+    color: #4a3563;
+    cursor: pointer;
+    width: 100%;
+}

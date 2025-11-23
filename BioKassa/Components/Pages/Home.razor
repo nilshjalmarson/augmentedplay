@@ -1,207 +1,31 @@
 ﻿@page "/"
-@using BioKassa.Models
-@using BioKassa.Services
-@using System.Globalization
-@using Microsoft.AspNetCore.Components.Web
 @rendermode InteractiveServer
-@inject ProduktService ProduktService
-@inject Varukorg Varukorg
+@inject NavigationManager Navigation
 
-<!-- PageTitle component removed -->
-
-<div class="bio-kassa-container">
-    <div class="category-tabs">
-        <button class="category-tab @(aktivKategori == ProduktTyp.Biljett ? "active" : "")" 
-                @onclick="() => BytKategori(ProduktTyp.Biljett)">
-            Biljetter
-        </button>
-        <button class="category-tab @(aktivKategori == ProduktTyp.Popcorn ? "active" : "")" 
-                @onclick="() => BytKategori(ProduktTyp.Popcorn)">
-            Popcorn
-        </button>
-        <button class="category-tab @(aktivKategori == ProduktTyp.Godis ? "active" : "")" 
-                @onclick="() => BytKategori(ProduktTyp.Godis)">
-            Godis
-        </button>
-        <button class="category-tab @(aktivKategori == ProduktTyp.Chips ? "active" : "")" 
-                @onclick="() => BytKategori(ProduktTyp.Chips)">
-            Chips
-        </button>
-        <button class="category-tab @(aktivKategori == ProduktTyp.Dryck ? "active" : "")" 
-                @onclick="() => BytKategori(ProduktTyp.Dryck)">
-            Drycker
-        </button>
+<div class="start-screen">
+    <div class="start-header">
+        <p class="start-eyebrow">Välkommen till Bibblix spelhörna</p>
+        <h1>Vad vill ni leka idag?</h1>
+        <p>Välj mellan den klassiska biokassan eller den nya spa-kassan med bokningssystem.</p>
     </div>
 
-    <div class="product-grid">
-        @foreach (var produkt in filtreradeProdukter)
-        {
-            <div class="product-card" @onclick="() => LäggTillProdukt(produkt)">
-                <div class="product-icon @GetIconKlass(produkt)"></div>
-                <div class="product-name">@produkt.Namn</div>
-                <div class="product-price">@FormatPris(produkt.Pris) kr</div>
-            </div>
-        }
-    </div>
+    <div class="start-options">
+        <div class="start-card">
+            <div class="start-icon">🎬</div>
+            <h2>Bio</h2>
+            <p>Köp biljetter, popcorn och godis i ett färgstarkt kassaflöde.</p>
+            <button class="start-button" @onclick='() => GåTill("/bio")'>Öppna biokassan</button>
+        </div>
 
-    <div class="cart-container">
-        <div class="cart-title">Varukorg</div>
-        @if (!Varukorg.Items.Any())
-        {
-            <p>Varukorgen är tom</p>
-        }
-        else
-        {
-            @foreach (var item in Varukorg.Items)
-            {
-                <div class="cart-item">
-                    <div class="cart-item-name">@item.Produkt.Namn</div>
-                    <div class="cart-item-controls">
-                        <button class="cart-quantity-btn" @onclick="() => TaBortProdukt(item.Produkt)">-</button>
-                        <span class="cart-quantity">@item.Antal</span>
-                        <button class="cart-quantity-btn" @onclick="() => LäggTillProdukt(item.Produkt)">+</button>
-                    </div>
-                    <div class="cart-item-price">@FormatPris(item.Summa) kr</div>
-                </div>
-            }
-
-            <div class="cart-total">
-                <div>Totalt:</div>
-                <div>@FormatPris(Varukorg.Totalsumma) kr</div>
-            </div>
-
-            <div class="cart-actions">
-                <button class="action-button btn-pay" @onclick="Betala">Betala</button>
-                <button class="action-button btn-clear" @onclick="TömVarukorg">Töm varukorg</button>
-            </div>
-        }
+        <div class="start-card">
+            <div class="start-icon">🧖</div>
+            <h2>Spa</h2>
+            <p>Boka behandlingar, välj behandlare och håll koll på tider och kvitton.</p>
+            <button class="start-button" @onclick='() => GåTill("/spa")'>Öppna spa-kassan</button>
+        </div>
     </div>
 </div>
 
-@if (visaKvitto)
-{
-    <div class="modal" style="display: block; background-color: rgba(0,0,0,0.5);">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Kvitto</h5>
-                    <button type="button" class="btn-close" @onclick="StängKvitto"></button>
-                </div>
-                <div class="modal-body">
-                    <h4>Tack för ditt köp!</h4>
-                    <p>Datum: @DateTime.Now.ToString("yyyy-MM-dd HH:mm")</p>
-                    <hr />
-                    @foreach (var item in kvittoItems)
-                    {
-                        <div class="d-flex justify-content-between mb-2">
-                            <span>@item.Produkt.Namn x @item.Antal</span>
-                            <span>@FormatPris(item.Summa) kr</span>
-                        </div>
-                    }
-                    <hr />
-                    <div class="d-flex justify-content-between fw-bold">
-                        <span>Totalt:</span>
-                        <span>@FormatPris(kvittoSumma) kr</span>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" @onclick="StängKvitto">Stäng</button>
-                </div>
-            </div>
-        </div>
-    </div>
-}
-
 @code {
-    private ProduktTyp aktivKategori = ProduktTyp.Biljett;
-    private List<Produkt> filtreradeProdukter = new();
-    private bool visaKvitto = false;
-    private List<VarukorgItem> kvittoItems = new();
-    private decimal kvittoSumma = 0;
-
-    protected override void OnInitialized()
-    {
-        HämtaProduktLista();
-    }
-
-    private void HämtaProduktLista()
-    {
-        filtreradeProdukter = ProduktService.HämtaProdukterEfterTyp(aktivKategori);
-    }
-
-    private void BytKategori(ProduktTyp kategori)
-    {
-        aktivKategori = kategori;
-        HämtaProduktLista();
-    }
-
-    private void LäggTillProdukt(Produkt produkt)
-    {
-        Varukorg.LäggTill(produkt);
-        StateHasChanged();
-    }
-
-    private void TaBortProdukt(Produkt produkt)
-    {
-        Varukorg.TaBort(produkt);
-        StateHasChanged();
-    }
-
-    private void TömVarukorg()
-    {
-        Varukorg.Rensa();
-        StateHasChanged();
-    }
-
-    private void Betala()
-    {
-        // Spara kvittodata
-        kvittoItems = new List<VarukorgItem>(Varukorg.Items);
-        kvittoSumma = Varukorg.Totalsumma;
-        
-        // Töm varukorgen
-        Varukorg.Rensa();
-        
-        // Visa kvitto
-        visaKvitto = true;
-    }
-
-    private void StängKvitto()
-    {
-        visaKvitto = false;
-    }
-
-    private string GetIconKlass(Produkt produkt)
-    {
-        return produkt.Typ switch
-        {
-            ProduktTyp.Biljett when produkt.Namn.Contains("Vuxen") => "icon-ticket",
-            ProduktTyp.Biljett when produkt.Namn.Contains("Barn") => "icon-ticket-child",
-            ProduktTyp.Biljett when produkt.Namn.Contains("Pensionär") => "icon-ticket-senior",
-            ProduktTyp.Popcorn when produkt.Namn.Contains("Liten") => "icon-popcorn-small",
-            ProduktTyp.Popcorn when produkt.Namn.Contains("Mellan") => "icon-popcorn-medium",
-            ProduktTyp.Popcorn when produkt.Namn.Contains("Stor") => "icon-popcorn-large",
-            ProduktTyp.Godis when produkt.Namn.Contains("Choklad") => "icon-candy-chocolate",
-            ProduktTyp.Godis when produkt.Namn.Contains("Gelé") => "icon-candy-gummy",
-            ProduktTyp.Godis when produkt.Namn.Contains("Lakrits") => "icon-candy-licorice",
-            ProduktTyp.Chips when produkt.Namn.Contains("Salted") => "icon-chips-salted",
-            ProduktTyp.Chips when produkt.Namn.Contains("Sourcream") => "icon-chips-sour",
-            ProduktTyp.Chips when produkt.Namn.Contains("Grill") => "icon-chips-bbq",
-            ProduktTyp.Dryck when produkt.DryckTyp == DryckTyp.Cola && produkt.DryckStorlek == DryckStorlek.Liten => "icon-drink-cola-small",
-            ProduktTyp.Dryck when produkt.DryckTyp == DryckTyp.Cola && produkt.DryckStorlek == DryckStorlek.Mellan => "icon-drink-cola-medium",
-            ProduktTyp.Dryck when produkt.DryckTyp == DryckTyp.Cola && produkt.DryckStorlek == DryckStorlek.Stor => "icon-drink-cola-large",
-            ProduktTyp.Dryck when produkt.DryckTyp == DryckTyp.Fanta && produkt.DryckStorlek == DryckStorlek.Liten => "icon-drink-fanta-small",
-            ProduktTyp.Dryck when produkt.DryckTyp == DryckTyp.Fanta && produkt.DryckStorlek == DryckStorlek.Mellan => "icon-drink-fanta-medium",
-            ProduktTyp.Dryck when produkt.DryckTyp == DryckTyp.Fanta && produkt.DryckStorlek == DryckStorlek.Stor => "icon-drink-fanta-large",
-            ProduktTyp.Dryck when produkt.DryckTyp == DryckTyp.Äppeljuice && produkt.DryckStorlek == DryckStorlek.Liten => "icon-drink-apple-small",
-            ProduktTyp.Dryck when produkt.DryckTyp == DryckTyp.Äppeljuice && produkt.DryckStorlek == DryckStorlek.Mellan => "icon-drink-apple-medium",
-            ProduktTyp.Dryck when produkt.DryckTyp == DryckTyp.Äppeljuice && produkt.DryckStorlek == DryckStorlek.Stor => "icon-drink-apple-large",
-            _ => ""
-        };
-    }
-
-    private string FormatPris(decimal pris)
-    {
-        return pris.ToString("0.00", CultureInfo.GetCultureInfo("sv-SE"));
-    }
+    private void GåTill(string sökväg) => Navigation.NavigateTo(sökväg);
 }

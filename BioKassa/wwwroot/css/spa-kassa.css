@@ -1,0 +1,235 @@
+.spa-kassa-wrapper {
+    display: flex;
+    gap: 2rem;
+    font-family: 'Quicksand', sans-serif;
+    flex-wrap: wrap;
+}
+
+.spa-columns {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.spa-panel {
+    background: #fdfcfa;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 201, 175, 0.4);
+}
+
+.spa-panel h2 {
+    margin-bottom: 1rem;
+    color: #5d4b4b;
+}
+
+.spa-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.spa-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 1rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s, border 0.2s;
+    text-align: left;
+}
+
+.spa-card.active {
+    border-color: #ffa3b5;
+    transform: translateY(-4px);
+}
+
+.spa-card-icon {
+    font-size: 2rem;
+}
+
+.spa-card-name {
+    font-weight: 700;
+    margin-top: 0.5rem;
+    color: #503e3e;
+}
+
+.spa-card-desc {
+    font-size: 0.9rem;
+    color: #8b7f7f;
+    min-height: 48px;
+}
+
+.spa-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #7a5c5c;
+}
+
+.spa-employee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.spa-employee {
+    border-radius: 16px;
+    border: 2px solid transparent;
+    padding: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    background: #fff;
+    cursor: pointer;
+    transition: border 0.2s, transform 0.2s;
+}
+
+.spa-employee.active {
+    border-color: #9cd3d8;
+    transform: translateY(-2px);
+}
+
+.spa-employee-avatar {
+    font-size: 2rem;
+}
+
+.spa-employee-name {
+    font-weight: 600;
+    color: #4d3b3b;
+}
+
+.spa-employee-role {
+    color: #8f7d7d;
+    font-size: 0.9rem;
+}
+
+.spa-date-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-weight: 600;
+    color: #5d4b4b;
+}
+
+.spa-date-picker input {
+    border-radius: 10px;
+    border: 1px solid #e7d7d2;
+    padding: 0.5rem;
+}
+
+.spa-slot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 0.5rem;
+}
+
+.spa-slot {
+    border: none;
+    padding: 0.6rem;
+    border-radius: 12px;
+    background: #dff5ec;
+    color: #355c4f;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.spa-slot:hover {
+    transform: translateY(-2px);
+    background: #c4ecdd;
+}
+
+.spa-cart {
+    flex: 1;
+    background: #fff9f6;
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255, 187, 173, 0.6);
+}
+
+.spa-cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #f3d3cb;
+    padding: 0.75rem 0;
+}
+
+.spa-cart-name {
+    font-weight: 600;
+    color: #4f3c3c;
+}
+
+.spa-cart-meta {
+    font-size: 0.85rem;
+    color: #8f7d7d;
+}
+
+.spa-cart-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spa-cart-price {
+    font-weight: 700;
+    color: #5d4b4b;
+}
+
+.spa-remove {
+    border: none;
+    background: #ffd9ce;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.spa-cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px dashed #f3d3cb;
+}
+
+.spa-book-button {
+    margin-top: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 18px;
+    padding: 0.9rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #9cd3d8, #f7b2c8);
+    color: #423636;
+    cursor: pointer;
+}
+
+.spa-muted {
+    color: #a49595;
+}
+
+.spa-alert {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background: #ffe3e3;
+    color: #813d3d;
+}
+
+@media (max-width: 900px) {
+    .spa-kassa-wrapper {
+        flex-direction: column;
+    }
+
+    .spa-cart {
+        width: 100%;
+    }
+}

@@ -10,7 +10,9 @@ builder.Services.AddRazorComponents()
 
 // Registrera våra tjänster
 builder.Services.AddSingleton<ProduktService>();
+builder.Services.AddSingleton<SpaBookingService>();
 builder.Services.AddScoped<Varukorg>();
+builder.Services.AddScoped<SpaKassa>();
 
 var app = builder.Build();
 
