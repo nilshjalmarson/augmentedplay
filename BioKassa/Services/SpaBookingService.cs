@@ -117,6 +117,14 @@ public class SpaBookingService
 
     public IReadOnlyList<SpaAnställd> HämtaAllaAnställda() => _anställda;
 
+    public IReadOnlyList<SpaBooking> HämtaBokningarFörDag(DateOnly datum)
+    {
+        return _bokadeTider
+            .Where(b => DateOnly.FromDateTime(b.Start) == datum)
+            .OrderBy(b => b.Start)
+            .ToList();
+    }
+
     public IReadOnlyList<SpaAnställd> HämtaAnställdaFörBehandling(int behandlingId)
     {
         var behandling = _behandlingar.FirstOrDefault(b => b.Id == behandlingId);
@@ -169,7 +177,8 @@ public class SpaBookingService
                 Anställd = item.Anställd,
                 Start = item.Start,
                 End = item.Slut,
-                Pris = item.Pris
+                Pris = item.Pris,
+                Kundnamn = item.Kundnamn
             });
         }
     }

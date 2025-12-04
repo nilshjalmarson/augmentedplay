@@ -1,0 +1,82 @@
+@page "/schema"
+@using System.Globalization
+@using System.Linq
+@using BioKassa.Models
+@using BioKassa.Services
+@rendermode InteractiveServer
+@inject SpaBookingService SpaBookingService
+@inject NavigationManager Navigation
+
+<div class="spa-subnav">
+    <button class="spa-subnav-btn" @onclick='() => Navigation.NavigateTo("/spa")'>Spa-kassa</button>
+    <button class="spa-subnav-btn" @onclick='() => Navigation.NavigateTo("/personal")'>Hantera personal</button>
+    <button class="spa-subnav-btn active" disabled>Dagens schema</button>
+</div>
+
+<section class="spa-panel schedule-controls">
+    <h2>Dagens schema</h2>
+    <div class="spa-date-picker">
+        <label for="schedule-date">Datum</label>
+        <input id="schedule-date" type="date" value="@valdDatum.ToString("yyyy-MM-dd")" @onchange="DatumÄndrat" />
+    </div>
+    <p class="spa-muted">Visar alla bokningar för vald dag och samtliga behandlare.</p>
+</section>
+
+<div class="schedule-grid">
+    @foreach (var person in anställda)
+    {
+        var personBokningar = bokningar.Where(b => b.Anställd.Id == person.Id).ToList();
+        <div class="schedule-card">
+            <div class="schedule-card-header">
+                <div class="staff-avatar">@person.Avatar</div>
+                <div>
+                    <div class="staff-name">@person.Namn</div>
+                    <div class="staff-role">@person.Roll</div>
+                </div>
+            </div>
+
+            @if (personBokningar.Any())
+            {
+                @foreach (var booking in personBokningar)
+                {
+                    <div class="schedule-entry">
+                        <div class="schedule-entry-time">@booking.Start.ToString("HH:mm") – @booking.End.ToString("HH:mm")</div>
+                        <div class="schedule-entry-info">@booking.Behandling.Namn · Kund: @booking.Kundnamn</div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="spa-muted">Inga bokningar.</p>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<SpaAnställd> anställda = new();
+    private List<SpaBooking> bokningar = new();
+    private DateOnly valdDatum = DateOnly.FromDateTime(DateTime.Today);
+
+    protected override void OnInitialized()
+    {
+        anställda = SpaBookingService.HämtaAllaAnställda().OrderBy(a => a.Namn).ToList();
+        LaddaSchema();
+    }
+
+    private void DatumÄndrat(ChangeEventArgs args)
+    {
+        if (DateTime.TryParse(args.Value?.ToString(), out var nyttDatum))
+        {
+            valdDatum = DateOnly.FromDateTime(nyttDatum);
+            LaddaSchema();
+        }
+    }
+
+    private void LaddaSchema()
+    {
+        bokningar = SpaBookingService
+            .HämtaBokningarFörDag(valdDatum)
+            .ToList();
+    }
+}

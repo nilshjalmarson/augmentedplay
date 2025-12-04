@@ -337,6 +337,9 @@
     flex: 1 1 200px;
 }
 
+.schedule-controls {
+    margin-bottom: 1rem;
+
     background: #ffe3e3;
     color: #813d3d;
 }
@@ -349,6 +352,48 @@
     .staff-admin {
         grid-template-columns: 1fr;
     }
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.schedule-card {
+    border-radius: 18px;
+    border: 1px solid rgba(159, 125, 125, 0.2);
+    padding: 1rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.schedule-card-header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    border-bottom: 1px dashed #f3d3cb;
+    padding-bottom: 0.5rem;
+}
+
+.schedule-entry {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(159, 125, 125, 0.2);
+}
+
+.schedule-entry:last-child {
+    border-bottom: none;
+}
+
+.schedule-entry-time {
+    font-weight: 700;
+    color: #4f3c3c;
+}
+
+.schedule-entry-info {
+    color: #6a4c93;
 }
 
 .spa-input {

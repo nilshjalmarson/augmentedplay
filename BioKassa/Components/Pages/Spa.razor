@@ -12,6 +12,7 @@
 <div class="spa-subnav">
     <button class="spa-subnav-btn active" disabled>Spa-kassa</button>
     <button class="spa-subnav-btn" @onclick='() => Navigation.NavigateTo("/personal")'>Hantera personal</button>
+    <button class="spa-subnav-btn" @onclick='() => Navigation.NavigateTo("/schema")'>Dagens schema</button>
 </div>
 
 <div class="spa-kassa-wrapper">
@@ -60,6 +61,11 @@
                 <div class="spa-date-picker">
                     <label for="date-input">Datum</label>
                     <input id="date-input" type="date" value="@valdDatum.ToString("yyyy-MM-dd")" @onchange="DatumÄndrat" />
+                </div>
+
+                <div class="spa-input spa-customer-input">
+                    <label for="customer-name">Kundens namn</label>
+                    <input id="customer-name" @bind="kundnamn" placeholder="Ex. Ella" />
                 </div>
             }
         </section>
@@ -115,6 +121,7 @@
                         <span class="spa-cart-price">@FormatPris(item.Pris)</span>
                         <button class="spa-remove" title="Ta bort" @onclick="() => TaBort(item.Id)">×</button>
                     </div>
+                    <div class="spa-cart-meta">Kund: @item.Kundnamn</div>
                 </div>
             }
 
@@ -149,7 +156,7 @@
                     @foreach (var item in kvittoItems)
                     {
                         <div class="d-flex justify-content-between mb-2">
-                            <span>@item.Behandling.Namn · @item.Start:ddd HH:mm med @item.Anställd.Namn</span>
+                            <span>@item.Behandling.Namn · @item.Start:ddd HH:mm med @item.Anställd.Namn · Kund: @item.Kundnamn</span>
                             <span>@FormatPris(item.Pris)</span>
                         </div>
                     }
@@ -178,6 +185,7 @@
     private bool visaKvitto;
     private List<SpaKassaItem> kvittoItems = new();
     private decimal kvittoSumma;
+    private string kundnamn = string.Empty;
 
     protected override void OnInitialized()
     {
@@ -190,6 +198,7 @@
         valdAnställd = null;
         anställdaFörValdBehandling = SpaBookingService.HämtaAnställdaFörBehandling(behandling.Id).ToList();
         tillgängligaSlots.Clear();
+        kundnamn = string.Empty;
         felmeddelande = null;
     }
 
@@ -232,17 +241,25 @@
             return;
         }
 
+        if (string.IsNullOrWhiteSpace(kundnamn))
+        {
+            felmeddelande = "Ange kundens namn innan du lägger till bokningen.";
+            return;
+        }
+
         try
         {
             var item = new SpaKassaItem
             {
                 Behandling = valdBehandling,
                 Anställd = valdAnställd,
-                Start = startTid
+                Start = startTid,
+                Kundnamn = kundnamn.Trim()
             };
 
             SpaKassa.LäggTill(item);
             felmeddelande = null;
+            kundnamn = string.Empty;
             LaddaSlots();
         }
         catch (InvalidOperationException ex)

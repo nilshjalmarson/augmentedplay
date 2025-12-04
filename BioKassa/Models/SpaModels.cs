@@ -41,6 +41,7 @@ public class SpaBooking
     public DateTime Start { get; set; }
     public DateTime End { get; set; }
     public decimal Pris { get; set; }
+    public string Kundnamn { get; set; } = string.Empty;
 }
 
 public class SpaKassaItem
@@ -51,4 +52,5 @@ public class SpaKassaItem
     public DateTime Start { get; init; }
     public DateTime Slut => Start + Behandling.Varaktighet;
     public decimal Pris => Behandling.Pris;
+    public string Kundnamn { get; init; } = string.Empty;
 }
