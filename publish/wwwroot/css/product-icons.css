@@ -1,0 +1,84 @@
+.product-icon {
+    width: 100px;
+    height: 100px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px auto;
+    font-size: 48px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.product-card:hover .product-icon {
+    transform: scale(1.05);
+}
+
+.icon-ticket::before {
+    content: "🎟️";
+}
+
+.icon-ticket-child::before {
+    content: "🧒";
+}
+
+.icon-ticket-senior::before {
+    content: "👴";
+}
+
+.icon-popcorn-small::before {
+    content: "🍿";
+}
+
+.icon-popcorn-medium::before {
+    content: "🍿";
+}
+
+.icon-popcorn-large::before {
+    content: "🍿";
+}
+
+.icon-candy-chocolate::before {
+    content: "🍫";
+}
+
+.icon-candy-gummy::before {
+    content: "🍬";
+}
+
+.icon-candy-licorice::before {
+    content: "🍭";
+}
+
+.icon-chips-salted::before {
+    content: "🥔";
+}
+
+.icon-chips-sour::before {
+    content: "🥔";
+}
+
+.icon-chips-bbq::before {
+    content: "🥔";
+}
+
+/* Dryckesikoner */
+.icon-drink-cola-small::before,
+.icon-drink-cola-medium::before,
+.icon-drink-cola-large::before {
+    content: "🥤";
+}
+
+.icon-drink-fanta-small::before,
+.icon-drink-fanta-medium::before,
+.icon-drink-fanta-large::before {
+    content: "🧋";
+}
+
+.icon-drink-apple-small::before,
+.icon-drink-apple-medium::before,
+.icon-drink-apple-large::before {
+    content: "🧃";
+}

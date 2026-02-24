@@ -1,0 +1,438 @@
+.spa-subnav {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.spa-subnav-btn {
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 1.5rem;
+    background: #e7d7d2;
+    color: #4f3c3c;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.spa-subnav-btn.active {
+    background: linear-gradient(90deg, #9cd3d8, #f7b2c8);
+    color: #3c3030;
+}
+
+.spa-subnav-btn:disabled {
+    cursor: default;
+    opacity: 0.9;
+}
+
+.spa-kassa-wrapper {
+    display: flex;
+    gap: 2rem;
+    font-family: 'Quicksand', sans-serif;
+    flex-wrap: wrap;
+}
+
+.spa-columns {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.spa-panel {
+    background: #fdfcfa;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 201, 175, 0.4);
+}
+
+.spa-panel h2 {
+    margin-bottom: 1rem;
+    color: #5d4b4b;
+}
+
+.spa-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.spa-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 1rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s, border 0.2s;
+    text-align: left;
+}
+
+.spa-card.active {
+    border-color: #ffa3b5;
+    transform: translateY(-4px);
+}
+
+.spa-card-icon {
+    font-size: 2rem;
+}
+
+.spa-card-name {
+    font-weight: 700;
+    margin-top: 0.5rem;
+    color: #503e3e;
+}
+
+.spa-card-desc {
+    font-size: 0.9rem;
+    color: #8b7f7f;
+    min-height: 48px;
+}
+
+.spa-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #7a5c5c;
+}
+
+.spa-employee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.spa-employee {
+    border-radius: 16px;
+    border: 2px solid transparent;
+    padding: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    background: #fff;
+    cursor: pointer;
+    transition: border 0.2s, transform 0.2s;
+}
+
+.spa-employee.active {
+    border-color: #9cd3d8;
+    transform: translateY(-2px);
+}
+
+.spa-employee-avatar {
+    font-size: 2rem;
+}
+
+.spa-employee-name {
+    font-weight: 600;
+    color: #4d3b3b;
+}
+
+.spa-employee-role {
+    color: #8f7d7d;
+    font-size: 0.9rem;
+}
+
+.spa-date-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-weight: 600;
+    color: #5d4b4b;
+}
+
+.spa-date-picker input {
+    border-radius: 10px;
+    border: 1px solid #e7d7d2;
+    padding: 0.5rem;
+}
+
+.spa-slot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 0.5rem;
+}
+
+.spa-slot {
+    border: none;
+    padding: 0.6rem;
+    border-radius: 12px;
+    background: #dff5ec;
+    color: #355c4f;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.spa-slot:hover {
+    transform: translateY(-2px);
+    background: #c4ecdd;
+}
+
+.spa-cart {
+    flex: 1;
+    background: #fff9f6;
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255, 187, 173, 0.6);
+}
+
+.spa-cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #f3d3cb;
+    padding: 0.75rem 0;
+}
+
+.spa-cart-name {
+    font-weight: 600;
+    color: #4f3c3c;
+}
+
+.spa-cart-meta {
+    font-size: 0.85rem;
+    color: #8f7d7d;
+}
+
+.spa-cart-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spa-cart-price {
+    font-weight: 700;
+    color: #5d4b4b;
+}
+
+.spa-remove {
+    border: none;
+    background: #ffd9ce;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.spa-cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px dashed #f3d3cb;
+}
+
+.spa-book-button {
+    margin-top: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 18px;
+    padding: 0.9rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #9cd3d8, #f7b2c8);
+    color: #423636;
+    cursor: pointer;
+}
+
+.spa-muted {
+    color: #a49595;
+}
+
+.spa-alert {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+.staff-admin {
+    display: grid;
+    grid-template-columns: minmax(280px, 380px) 1fr;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.staff-card {
+    border: 1px solid rgba(159, 125, 125, 0.2);
+    border-radius: 16px;
+    padding: 1rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.staff-card-header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.staff-avatar {
+    font-size: 2.5rem;
+}
+
+.staff-name {
+    font-weight: 700;
+    color: #4f3c3c;
+}
+
+.staff-role {
+    color: #8f7d7d;
+    font-size: 0.9rem;
+}
+
+.staff-competences {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.staff-chip {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: #f3d3cb;
+    font-size: 0.8rem;
+    color: #4f3c3c;
+}
+
+.staff-actions,
+.staff-edit-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.staff-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem 0.9rem;
+    background: #e7d7d2;
+    color: #4f3c3c;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.staff-btn.danger {
+    background: #ffd1d1;
+    color: #7a2424;
+}
+
+.staff-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.staff-edit-actions .spa-book-button {
+    flex: 1 1 200px;
+}
+
+.schedule-controls {
+    margin-bottom: 1rem;
+
+    background: #ffe3e3;
+    color: #813d3d;
+}
+
+.spa-add-staff {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .staff-admin {
+        grid-template-columns: 1fr;
+    }
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.schedule-card {
+    border-radius: 18px;
+    border: 1px solid rgba(159, 125, 125, 0.2);
+    padding: 1rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.schedule-card-header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    border-bottom: 1px dashed #f3d3cb;
+    padding-bottom: 0.5rem;
+}
+
+.schedule-entry {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(159, 125, 125, 0.2);
+}
+
+.schedule-entry:last-child {
+    border-bottom: none;
+}
+
+.schedule-entry-time {
+    font-weight: 700;
+    color: #4f3c3c;
+}
+
+.schedule-entry-info {
+    color: #6a4c93;
+}
+
+.spa-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+}
+
+.spa-input input {
+    border-radius: 10px;
+    border: 1px solid #e7d7d2;
+    padding: 0.5rem;
+}
+
+.spa-competence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.spa-checkbox {
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(159, 125, 125, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .spa-kassa-wrapper {
+        flex-direction: column;
+    }
+
+    .spa-cart {
+        width: 100%;
+    }
+}
