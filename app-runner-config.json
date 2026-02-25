@@ -1,0 +1,25 @@
+{
+  "ServiceName": "biokassa",
+  "SourceConfiguration": {
+    "AuthenticationConfiguration": {
+      "ConnectionArn": "arn:aws:apprunner:eu-central-1:195275673120:connection/aws-app-runner/ab38914ab855496ea012f8fa97ab5519"
+    },
+    "AutoDeploymentsEnabled": true,
+    "CodeRepository": {
+      "RepositoryUrl": "https://github.com/nilshjalmarson/augmentedplay",
+      "SourceCodeVersion": {
+        "Type": "BRANCH",
+        "Value": "main"
+      },
+      "CodeConfiguration": {
+        "ConfigurationSource": "API",
+        "CodeConfigurationValues": {
+          "Runtime": "DOTNET_10",
+          "BuildCommand": "dotnet publish BioKassa/BioKassa.csproj -c Release -o out",
+          "StartCommand": "dotnet out/BioKassa.dll",
+          "Port": "5000"
+        }
+      }
+    }
+  }
+}
