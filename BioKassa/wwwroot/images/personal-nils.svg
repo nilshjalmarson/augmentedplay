@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#fef3e2"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </radialGradient>
+    <radialGradient id="skin" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fddcb5"/>
+      <stop offset="100%" stop-color="#d4895a"/>
+    </radialGradient>
+    <linearGradient id="hair" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" stop-color="#3b2010"/>
+      <stop offset="100%" stop-color="#1c0f05"/>
+    </linearGradient>
+    <!-- Rutig flanellskjorta (röd/mörkgrön) -->
+    <pattern id="flannel" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#b91c1c"/>
+      <rect width="4" height="8" fill="#991b1b" opacity="0.6"/>
+      <rect width="8" height="4" fill="#166534" opacity="0.5"/>
+      <rect width="4" height="4" fill="#14532d" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+
+  <!-- Flanellskjorta -->
+  <path d="M18 100 Q20 73 44 70 L44 75 Q50 78 56 75 L56 70 Q80 73 82 100 Z" fill="url(#flannel)"/>
+  <!-- Skjortans krage -->
+  <path d="M44 70 L47 65 L50 68 L53 65 L56 70" fill="#7f1d1d" stroke="#991b1b" stroke-width="0.5"/>
+  <!-- Skjortficka -->
+  <rect x="54" y="76" width="10" height="8" rx="1" fill="none" stroke="#7f1d1d" stroke-width="0.8" opacity="0.7"/>
+
+  <!-- Hals -->
+  <path d="M44 69 Q50 72 56 69 L55 62 Q50 64 45 62 Z" fill="url(#skin)"/>
+
+  <!-- Huvud -->
+  <ellipse cx="50" cy="47" rx="20" ry="22" fill="url(#skin)"/>
+
+  <!-- Hår (mörkt, lite rufsigt men stiligt) -->
+  <ellipse cx="50" cy="29" rx="21" ry="13" fill="url(#hair)"/>
+  <path d="M29 38 C27 33 28 27 31 29 C30 34 30 43 31 47 Z" fill="url(#hair)"/>
+  <path d="M71 38 C73 33 72 27 69 29 C70 34 70 43 69 47 Z" fill="url(#hair)"/>
+  <path d="M29 37 C31 26 40 22 50 23 C60 22 69 26 71 37 C65 31 55 29 50 29 C45 29 35 31 29 37 Z" fill="url(#hair)"/>
+  <!-- Lite rufs på toppen -->
+  <path d="M43 24 C45 19 50 18 55 21" stroke="#3b2010" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M38 26 C40 21 44 20 48 22" stroke="#3b2010" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Glasögon (runda hipster-glasögon) -->
+  <!-- Vänster båge -->
+  <circle cx="37" cy="45" r="8" fill="none" stroke="#4a3728" stroke-width="2"/>
+  <circle cx="37" cy="45" r="7" fill="white" opacity="0.15"/>
+  <!-- Höger båge -->
+  <circle cx="63" cy="45" r="8" fill="none" stroke="#4a3728" stroke-width="2"/>
+  <circle cx="63" cy="45" r="7" fill="white" opacity="0.15"/>
+  <!-- Bro -->
+  <line x1="45" y1="44" x2="55" y2="44" stroke="#4a3728" stroke-width="2"/>
+  <!-- Skalmar -->
+  <line x1="29" y1="44" x2="24" y2="46" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+  <line x1="71" y1="44" x2="76" y2="46" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+  <!-- Glasskimmer -->
+  <path d="M31 41 C33 40 36 40 38 41" stroke="white" stroke-width="0.8" fill="none" opacity="0.5" stroke-linecap="round"/>
+  <path d="M57 41 C59 40 62 40 64 41" stroke="white" stroke-width="0.8" fill="none" opacity="0.5" stroke-linecap="round"/>
+
+  <!-- Ögon (bakom glasögonen) -->
+  <circle cx="37" cy="45" r="3" fill="#3b6e8a"/>
+  <circle cx="37" cy="45" r="1.8" fill="#1a3a4a"/>
+  <circle cx="38" cy="44" r="0.7" fill="white"/>
+  <circle cx="63" cy="45" r="3" fill="#3b6e8a"/>
+  <circle cx="63" cy="45" r="1.8" fill="#1a3a4a"/>
+  <circle cx="64" cy="44" r="0.7" fill="white"/>
+
+  <!-- Ögonbryn (ovanför glasögon) -->
+  <path d="M30 37 C33 35 40 35 44 37" stroke="#3b2010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M56 37 C60 35 67 35 70 37" stroke="#3b2010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Skägg (hipster-skägg, välvårdat) -->
+  <!-- Mustasch -->
+  <path d="M43 58 C45 56 49 55.5 50 56 C51 55.5 55 56 57 58 C55 57 52 56.5 50 57 C48 56.5 45 57 43 58 Z" fill="#2d1a0a"/>
+  <!-- Skägg på kinderna -->
+  <path d="M30 52 C30 56 31 60 33 63 C36 67 40 69 44 68 C42 66 38 63 36 59 C34 56 32 54 30 52 Z" fill="#2d1a0a" opacity="0.7"/>
+  <path d="M70 52 C70 56 69 60 67 63 C64 67 60 69 56 68 C58 66 62 63 64 59 C66 56 68 54 70 52 Z" fill="#2d1a0a" opacity="0.7"/>
+  <!-- Hakskägg (välformat) -->
+  <path d="M38 65 C40 70 45 73 50 73 C55 73 60 70 62 65 C58 68 54 70 50 70 C46 70 42 68 38 65 Z" fill="#2d1a0a"/>
+  <!-- Skäggstruktur (subtila linjer) -->
+  <path d="M35 58 C36 61 37 64 38 66" stroke="#1c0f05" stroke-width="0.6" fill="none" opacity="0.5"/>
+  <path d="M38 57 C39 60 40 63 41 66" stroke="#1c0f05" stroke-width="0.6" fill="none" opacity="0.5"/>
+  <path d="M65 58 C64 61 63 64 62 66" stroke="#1c0f05" stroke-width="0.6" fill="none" opacity="0.5"/>
+  <path d="M62 57 C61 60 60 63 59 66" stroke="#1c0f05" stroke-width="0.6" fill="none" opacity="0.5"/>
+
+  <!-- Mun (under mustasch) -->
+  <path d="M44 61 C47 62 53 62 56 61" stroke="#c8885a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+  <!-- Kindrosor (lätt) -->
+  <ellipse cx="30" cy="52" rx="5" ry="3" fill="#fda4af" opacity="0.2"/>
+  <ellipse cx="70" cy="52" rx="5" ry="3" fill="#fda4af" opacity="0.2"/>
+
+  <!-- Namnbricka -->
+  <rect x="31" y="84" width="38" height="12" rx="6" fill="#b91c1c"/>
+  <text x="50" y="93.5" text-anchor="middle" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">Nils</text>
+</svg>

@@ -24,7 +24,16 @@
                 {
                     <button class="spa-card @(valdBehandling?.Id == behandling.Id ? "active" : string.Empty)"
                             @onclick="() => VäljBehandling(behandling)">
-                        <div class="spa-card-icon">@behandling.Ikon</div>
+                        <div class="spa-card-icon">
+                            @if (!string.IsNullOrEmpty(behandling.IkonBild))
+                            {
+                                <img src="@behandling.IkonBild" alt="@behandling.Namn" class="spa-behandling-bild"/>
+                            }
+                            else
+                            {
+                                @behandling.Ikon
+                            }
+                        </div>
                         <div class="spa-card-name">@behandling.Namn</div>
                         <div class="spa-card-desc">@behandling.Beskrivning</div>
                         <div class="spa-card-meta">
@@ -49,7 +58,16 @@
                     {
                         <button class="spa-employee @(valdAnställd?.Id == anställd.Id ? "active" : string.Empty)"
                                 @onclick="() => VäljAnställd(anställd)">
-                            <div class="spa-employee-avatar">@anställd.Avatar</div>
+                            <div class="spa-employee-avatar">
+                                @if (!string.IsNullOrEmpty(anställd.AvatarBild))
+                                {
+                                    <img src="@anställd.AvatarBild" alt="@anställd.Namn" class="staff-avatar-bild"/>
+                                }
+                                else
+                                {
+                                    @anställd.Avatar
+                                }
+                            </div>
                             <div>
                                 <div class="spa-employee-name">@anställd.Namn</div>
                                 <div class="spa-employee-role">@anställd.Roll</div>

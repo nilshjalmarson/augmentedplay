@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fce7f3"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </radialGradient>
+    <linearGradient id="sk" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#fddcb5"/>
+      <stop offset="100%" stop-color="#e8a070"/>
+    </linearGradient>
+    <linearGradient id="ng" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fda4d4"/>
+      <stop offset="100%" stop-color="#db2777"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+
+  <!-- Fot (sedd uppifrån, lätt vinklad) -->
+  <!-- Fotsform: häl nedtill, tår uppåt -->
+  <path d="M32,90 C26,85 24,75 25,63 C26,52 29,44 34,38 C38,34 44,32 50,33 C58,34 65,38 68,46 C72,55 71,68 69,78 C67,86 62,91 55,93 Q44,96 32,90 Z" fill="url(#sk)" stroke="#c8885a" stroke-width="0.5"/>
+
+  <!-- Fotvalvslinjer (subtila) -->
+  <path d="M30,72 Q38,69 46,71" stroke="#c8885a" stroke-width="0.6" fill="none" opacity="0.35"/>
+
+  <!-- Stortå -->
+  <path d="M28,42 C25,38 25,31 28,27 C30,24 35,23 37,26 C39,29 39,37 37,42 Z" fill="url(#sk)" stroke="#c8885a" stroke-width="0.4"/>
+  <path d="M28,36 Q32.5,34 37,36" stroke="#c8885a" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <!-- Stortå nagel -->
+  <path d="M28.5,29 Q28,24.5 32.5,23.5 Q37,23 38,26.5 L38,30 Q33,31.5 28.5,29 Z" fill="url(#ng)"/>
+  <path d="M30.5,25.5 Q33,24 37,24.5" stroke="white" stroke-width="1" fill="none" opacity="0.55" stroke-linecap="round"/>
+
+  <!-- Pektå -->
+  <path d="M39,39 C38,34 38,28 40,24 C41,21 44,20 46,22 C47,25 47,34 46,39 Z" fill="url(#sk)" stroke="#c8885a" stroke-width="0.4"/>
+  <path d="M39,33 Q42.5,31.5 46,33" stroke="#c8885a" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M39.5,25.5 Q39,21.5 42.5,20.5 Q46,20 46.5,23 L46.5,26 Q43,27.5 39.5,25.5 Z" fill="url(#ng)"/>
+  <path d="M41,22.5 Q43.5,21 46,22" stroke="white" stroke-width="0.9" fill="none" opacity="0.55" stroke-linecap="round"/>
+
+  <!-- Långtå -->
+  <path d="M48,39 C47,34 47,27 49,23 C50,20 53,19.5 55,22 C56,25 56,34 55,39 Z" fill="url(#sk)" stroke="#c8885a" stroke-width="0.4"/>
+  <path d="M48,33 Q51.5,31.5 55,33" stroke="#c8885a" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M48.5,24.5 Q48,20.5 51.5,19.5 Q55,19.5 55.5,22.5 L55.5,25 Q52,26.5 48.5,24.5 Z" fill="url(#ng)"/>
+  <path d="M50,21.5 Q52.5,20 55,21" stroke="white" stroke-width="0.9" fill="none" opacity="0.55" stroke-linecap="round"/>
+
+  <!-- Ringtå -->
+  <path d="M57,40 C56.5,35 56.5,29 58,25 C59,22 62,22 63,25 C64,28 64,35 63,40 Z" fill="url(#sk)" stroke="#c8885a" stroke-width="0.4"/>
+  <path d="M57.5,34 Q60,32.5 63,34" stroke="#c8885a" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M57.5,26.5 Q57.5,23 60,22.5 Q63,22 63.5,25 L63.5,27 Q60.5,28.5 57.5,26.5 Z" fill="url(#ng)"/>
+  <path d="M58.5,24 Q60.5,22.5 63,23.5" stroke="white" stroke-width="0.8" fill="none" opacity="0.5" stroke-linecap="round"/>
+
+  <!-- Lilltå -->
+  <path d="M65,42 C65,38 65,33 66.5,30 C67.5,28 69.5,28 70.5,30 C71.5,32.5 71,38 70,42 Z" fill="url(#sk)" stroke="#c8885a" stroke-width="0.4"/>
+  <path d="M65.5,37 Q67.5,35.5 70.5,37" stroke="#c8885a" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M65.5,31.5 Q65.5,28.5 67.5,28 Q70,28 70.5,30 L70.5,32 Q68,33 65.5,31.5 Z" fill="url(#ng)"/>
+  <path d="M66.5,29.5 Q68,28.5 70,29.5" stroke="white" stroke-width="0.7" fill="none" opacity="0.5" stroke-linecap="round"/>
+
+  <!-- Blomma vid ankeln -->
+  <circle cx="55" cy="83" r="4" fill="#fbbf24"/>
+  <circle cx="50" cy="79" r="4" fill="#fda4d4"/>
+  <circle cx="60" cy="79" r="4" fill="#fda4d4"/>
+  <circle cx="50" cy="87" r="4" fill="#fda4d4"/>
+  <circle cx="60" cy="87" r="4" fill="#fda4d4"/>
+  <circle cx="55" cy="83" r="3" fill="#fbbf24"/>
+</svg>

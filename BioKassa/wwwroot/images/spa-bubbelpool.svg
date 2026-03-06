@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <radialGradient id="skin" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Bakgrund -->
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+
+  <!-- Badkarskropp -->
+  <path d="M12 58 Q12 82 22 85 L78 85 Q88 82 88 58 Z" fill="#e0e7ff" stroke="#818cf8" stroke-width="2"/>
+  <!-- Badkarskant -->
+  <rect x="10" y="53" width="80" height="8" rx="4" fill="#c7d2fe" stroke="#818cf8" stroke-width="1.5"/>
+  <!-- Kran -->
+  <rect x="44" y="46" width="12" height="9" rx="3" fill="#94a3b8"/>
+  <rect x="42" y="44" width="16" height="4" rx="2" fill="#64748b"/>
+  <rect x="47" y="40" width="6" height="6" rx="1" fill="#94a3b8"/>
+
+  <!-- Vatten -->
+  <path d="M14 66 Q50 60 86 66 L86 83 Q78 84 22 84 L14 83 Z" fill="url(#water)" opacity="0.85"/>
+  <!-- Vattenvåg -->
+  <path d="M14 66 Q30 62 50 66 Q70 70 86 66" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+  <!-- Bubblor i vattnet -->
+  <circle cx="25" cy="72" r="4" fill="white" opacity="0.7"/>
+  <circle cx="40" cy="69" r="3" fill="white" opacity="0.6"/>
+  <circle cx="55" cy="73" r="4.5" fill="white" opacity="0.65"/>
+  <circle cx="70" cy="70" r="3" fill="white" opacity="0.6"/>
+  <circle cx="80" cy="75" r="3.5" fill="white" opacity="0.55"/>
+  <circle cx="33" cy="77" r="2.5" fill="white" opacity="0.5"/>
+  <circle cx="63" cy="78" r="2" fill="white" opacity="0.5"/>
+
+  <!-- Bubblor som flyger upp -->
+  <circle cx="28" cy="55" r="3" fill="white" opacity="0.5"/>
+  <circle cx="45" cy="50" r="4" fill="white" opacity="0.4"/>
+  <circle cx="62" cy="53" r="3" fill="white" opacity="0.45"/>
+  <circle cx="75" cy="48" r="2.5" fill="white" opacity="0.35"/>
+  <circle cx="35" cy="43" r="2" fill="white" opacity="0.3"/>
+  <circle cx="55" cy="40" r="3" fill="white" opacity="0.3"/>
+
+  <!-- Ben som sticker upp ur vattnet -->
+  <!-- Vänster ben -->
+  <path d="M32 58 Q30 48 34 40 Q38 33 42 36 Q44 40 40 48 Q38 55 36 58 Z" fill="url(#skin)" stroke="#fbbf24" stroke-width="1"/>
+  <!-- Vänster fot -->
+  <ellipse cx="40" cy="35" rx="7" ry="5" fill="url(#skin)" stroke="#fbbf24" stroke-width="1" transform="rotate(-30 40 35)"/>
+  <!-- Vänster tår-naglar -->
+  <circle cx="36" cy="30" r="2" fill="#f472b6"/>
+  <circle cx="42" cy="31" r="1.8" fill="#c084fc"/>
+  <circle cx="46" cy="34" r="1.5" fill="#f472b6"/>
+
+  <!-- Höger ben -->
+  <path d="M60 58 Q62 48 64 40 Q66 33 70 36 Q72 40 70 48 Q68 55 64 58 Z" fill="url(#skin)" stroke="#fbbf24" stroke-width="1"/>
+  <!-- Höger fot -->
+  <ellipse cx="68" cy="35" rx="7" ry="5" fill="url(#skin)" stroke="#fbbf24" stroke-width="1" transform="rotate(30 68 35)"/>
+  <!-- Höger tår-naglar -->
+  <circle cx="64" cy="30" r="2" fill="#c084fc"/>
+  <circle cx="70" cy="31" r="1.8" fill="#f472b6"/>
+  <circle cx="74" cy="34" r="1.5" fill="#c084fc"/>
+
+  <!-- Ångvågor -->
+  <path d="M20 48 Q23 42 20 36" stroke="white" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <path d="M50 44 Q53 38 50 32" stroke="white" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
+</svg>

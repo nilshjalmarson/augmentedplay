@@ -21,7 +21,9 @@ public class SpaBookingService
             Pris = 650,
             Varaktighet = TimeSpan.FromMinutes(60),
             Beskrivning = "Djuprengörande kur med mask och massage.",
-            Ikon = "💆"
+            Ikon = "💆",
+            IkonBild = "/images/spa-ansiktsbehandling.svg",
+            Betyg = 5
         },
         new Behandling
         {
@@ -31,7 +33,9 @@ public class SpaBookingService
             Pris = 550,
             Varaktighet = TimeSpan.FromMinutes(45),
             Beskrivning = "Avslappnande helkroppsmassage.",
-            Ikon = "💪"
+            Ikon = "💪",
+            IkonBild = "/images/spa-massage.svg",
+            Betyg = 5
         },
         new Behandling
         {
@@ -41,7 +45,9 @@ public class SpaBookingService
             Pris = 400,
             Varaktighet = TimeSpan.FromMinutes(30),
             Beskrivning = "Privat bubbelpool med doftljus.",
-            Ikon = "🫧"
+            Ikon = "🫧",
+            IkonBild = "/images/spa-bubbelpool.svg",
+            Betyg = 4
         },
         new Behandling
         {
@@ -51,7 +57,9 @@ public class SpaBookingService
             Pris = 520,
             Varaktighet = TimeSpan.FromMinutes(50),
             Beskrivning = "Fotbad, peeling och lack.",
-            Ikon = "🦶"
+            Ikon = "🦶",
+            IkonBild = "/images/spa-pedikyr.svg",
+            Betyg = 4
         },
         new Behandling
         {
@@ -61,7 +69,9 @@ public class SpaBookingService
             Pris = 480,
             Varaktighet = TimeSpan.FromMinutes(45),
             Beskrivning = "Formning, lack och handmassage.",
-            Ikon = "💅"
+            Ikon = "💅",
+            IkonBild = "/images/spa-manikyr.svg",
+            Betyg = 5
         },
         new Behandling
         {
@@ -71,7 +81,9 @@ public class SpaBookingService
             Pris = 620,
             Varaktighet = TimeSpan.FromMinutes(60),
             Beskrivning = "Inpackning och styling.",
-            Ikon = "💇"
+            Ikon = "💇",
+            IkonBild = "/images/spa-harBehandling.svg",
+            Betyg = 4
         }
     };
 
@@ -80,34 +92,56 @@ public class SpaBookingService
         new SpaAnställd
         {
             Id = 1,
-            Namn = "Linn",
-            Roll = "Hudterapeut",
-            Avatar = "🧖",
-            Kompetenser = new() { BehandlingTyp.Ansiktsbehandling, BehandlingTyp.Manikyr, BehandlingTyp.Pedikyr }
+            Namn = "Liv",
+            Roll = "Behandlare",
+            Avatar = "🌸",
+            AvatarBild = "/images/personal-liv.svg",
+            Kompetenser = new()
         },
         new SpaAnställd
         {
             Id = 2,
-            Namn = "Omar",
-            Roll = "Massageterapeut",
-            Avatar = "💪",
-            Kompetenser = new() { BehandlingTyp.Massage, BehandlingTyp.Bubbelpool }
+            Namn = "Benjamin",
+            Roll = "Behandlare",
+            Avatar = "😎",
+            AvatarBild = "/images/personal-benjamin.svg",
+            Kompetenser = new()
         },
         new SpaAnställd
         {
             Id = 3,
-            Namn = "Sara",
-            Roll = "Spa-guide",
-            Avatar = "🫧",
-            Kompetenser = new() { BehandlingTyp.Bubbelpool, BehandlingTyp.Hårbehandling }
+            Namn = "Anna",
+            Roll = "Behandlare",
+            Avatar = "💼",
+            AvatarBild = "/images/personal-anna.svg",
+            Kompetenser = new()
         },
         new SpaAnställd
         {
             Id = 4,
-            Namn = "Mika",
-            Roll = "Stylist",
-            Avatar = "💇",
-            Kompetenser = new() { BehandlingTyp.Hårbehandling, BehandlingTyp.Manikyr }
+            Namn = "Nils",
+            Roll = "Behandlare",
+            Avatar = "🧔",
+            AvatarBild = "/images/personal-nils.svg",
+            Kompetenser = new()
+        },
+        new SpaAnställd
+        {
+            Id = 5,
+            Namn = "Erik",
+            Roll = "Behandlare",
+            Avatar = "😄",
+            AvatarBild = "/images/personal-erik.svg",
+            Kompetenser = new()
+        },
+        new SpaAnställd
+        {
+            Id = 6,
+            Namn = "Nevin",
+            Roll = "Behandlare",
+            Avatar = "⚡",
+            AvatarBild = "/images/personal-nevin.svg",
+            Kompetenser = new()
         }
     };
 
@@ -246,5 +280,11 @@ public class SpaBookingService
     private bool ÄrSlotLedig(int anställdId, DateTime start, DateTime slut)
     {
         return !_bokadeTider.Any(b => b.Anställd.Id == anställdId && start < b.End && slut > b.Start);
+    }
+
+    public void SättBehandlingBetyg(int id, int betyg)
+    {
+        var behandling = _behandlingar.FirstOrDefault(b => b.Id == id);
+        if (behandling != null) behandling.Betyg = betyg;
     }
 }

@@ -50,6 +50,10 @@
                 <div class="product-icon @GetIconKlass(produkt)"></div>
                 <div class="product-name">@produkt.Namn</div>
                 <div class="product-price">@FormatPris(produkt.Pris) kr</div>
+                @if (produkt.Typ != ProduktTyp.Biljett)
+                {
+                    <StjärnBetyg Betyg="@produkt.Betyg" BetygChanged="@(b => SättBetyg(produkt, b))" />
+                }
             </div>
         }
     </div>
@@ -196,6 +200,12 @@
     private void StängKvitto()
     {
         visaKvitto = false;
+    }
+
+    private void SättBetyg(Produkt produkt, int betyg)
+    {
+        ProduktService.SättBetyg(produkt.Id, betyg);
+        produkt.Betyg = betyg;
     }
 
     private string GetIconKlass(Produkt produkt)

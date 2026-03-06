@@ -9,6 +9,7 @@ public class Produkt
     public string Bild { get; set; } = string.Empty;
     public DryckTyp? DryckTyp { get; set; }
     public DryckStorlek? DryckStorlek { get; set; }
+    public int Betyg { get; set; } = 0;
 }
 
 public enum ProduktTyp

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M28 42 L32 90 L68 90 L72 42 Z" fill="#e53935"/>
+  <rect x="28" y="36" width="44" height="8" rx="3" fill="#b71c1c"/>
+  <rect x="31" y="50" width="38" height="34" rx="0" fill="#3e2723" opacity="0.85"/>
+  <ellipse cx="50" cy="50" rx="19" ry="5" fill="#5d4037"/>
+  <rect x="31" y="50" width="14" height="34" fill="white" opacity="0.08" rx="0"/>
+  <rect x="46" y="28" width="8" height="12" rx="4" fill="#e0e0e0"/>
+  <line x1="50" y1="28" x2="50" y2="-8" stroke="#e0e0e0" stroke-width="3" stroke-linecap="round"/>
+  <text x="50" y="71" font-family="Arial Black" font-size="7" fill="white" text-anchor="middle" font-weight="900" opacity="0.8">COLA</text>
+</svg>

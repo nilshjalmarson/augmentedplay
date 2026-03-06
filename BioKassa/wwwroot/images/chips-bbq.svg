@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M30 10 Q50 5 70 10 L80 85 Q50 95 20 85 Z" fill="#c0392b"/>
+  <path d="M30 10 Q50 5 70 10 L75 30 Q50 25 25 30 Z" fill="#96281b"/>
+  <path d="M28 82 Q50 92 72 82 L75 75 Q50 85 25 75 Z" fill="#96281b"/>
+  <ellipse cx="50" cy="46" rx="18" ry="12" fill="white" opacity="0.2"/>
+  <text x="50" y="43" font-family="Arial Black" font-size="8" fill="#fff" text-anchor="middle" font-weight="900">GRILL</text>
+  <text x="50" y="53" font-family="Arial Black" font-size="7" fill="#ffd700" text-anchor="middle" font-weight="900">🔥</text>
+  <ellipse cx="38" cy="63" rx="12" ry="7" fill="#e8896a" transform="rotate(-20 38 63)"/>
+  <ellipse cx="58" cy="59" rx="11" ry="6" fill="#d4704a" transform="rotate(15 58 59)"/>
+  <ellipse cx="47" cy="73" rx="10" ry="6" fill="#e8896a" transform="rotate(-10 47 73)"/>
+</svg>

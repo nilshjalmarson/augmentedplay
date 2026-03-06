@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect x="25" y="34" width="50" height="56" rx="6" fill="#8bc34a"/>
+  <rect x="25" y="34" width="50" height="14" rx="6" fill="#558b2f"/>
+  <rect x="25" y="46" width="50" height="6" fill="#558b2f"/>
+  <rect x="29" y="48" width="42" height="30" rx="4" fill="#dcedc8" opacity="0.4"/>
+  <rect x="42" y="26" width="16" height="8" rx="4" fill="#c8e6c9"/>
+  <text x="50" y="57" font-family="Arial Black" font-size="6" fill="white" text-anchor="middle" font-weight="900">ÄPPLE</text>
+  <text x="50" y="66" font-family="Arial Black" font-size="6" fill="white" text-anchor="middle" font-weight="900">JUICE</text>
+  <circle cx="50" cy="78" r="12" fill="#8bc34a" opacity="0.3"/>
+  <text x="50" y="83" font-size="14" text-anchor="middle">🍏</text>
+</svg>

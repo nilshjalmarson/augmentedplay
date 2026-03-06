@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M25 36 L29 90 L71 90 L75 36 Z" fill="#f57c00"/>
+  <rect x="25" y="30" width="50" height="8" rx="3" fill="#e65100"/>
+  <rect x="28" y="44" width="44" height="40" fill="#ff9800" opacity="0.9"/>
+  <ellipse cx="50" cy="44" rx="22" ry="5" fill="#e65100"/>
+  <rect x="28" y="44" width="17" height="40" fill="white" opacity="0.15" rx="0"/>
+  <rect x="46" y="22" width="8" height="12" rx="4" fill="#e0e0e0"/>
+  <line x1="50" y1="22" x2="50" y2="-14" stroke="#e0e0e0" stroke-width="3" stroke-linecap="round"/>
+  <text x="50" y="68" font-family="Arial Black" font-size="7" fill="white" text-anchor="middle" font-weight="900" opacity="0.9">FANTA</text>
+</svg>

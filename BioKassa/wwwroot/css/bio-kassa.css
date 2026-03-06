@@ -31,8 +31,8 @@
 }
 
 .main-tab.active {
-    background-color: #ff9cc2;
-    color: white;
+    background: linear-gradient(120deg, #b5deff, #ffcae9);
+    color: #4a3563;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -59,7 +59,7 @@
 }
 
 .category-tab.active {
-    background-color: #95d2ff;
+    background: linear-gradient(120deg, #95d2ff, #ffb6d9);
     color: white;
 }
 
@@ -74,11 +74,11 @@
     padding: 15px;
     border-radius: 18px;
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    background-color: white;
+    background: linear-gradient(160deg, #fff 60%, #f0eaff);
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
     text-align: center;
-    border: 2px solid rgba(106, 76, 147, 0.1);
+    border: 2px solid rgba(181, 222, 255, 0.5);
 }
 
 .product-card:hover {
@@ -101,7 +101,7 @@
 }
 
 .cart-container {
-    background-color: #ffdde1; /* Rosa pastell */
+    background: linear-gradient(160deg, #ffdde1, #e8d5ff);
     padding: 20px;
     border-radius: 18px;
     margin-top: 20px;
@@ -206,22 +206,22 @@
 }
 
 .btn-pay {
-    background-color: #c4f4c7; /* Mintgrön pastell */
-    color: #6a4c93;
+    background: linear-gradient(120deg, #b5deff, #c4f4c7);
+    color: #4a3563;
 }
 
 .btn-pay:hover {
-    background-color: #a7e8ab;
+    background: linear-gradient(120deg, #9bccff, #a7e8ab);
     transform: translateY(-3px);
 }
 
 .btn-clear {
-    background-color: #ffcae9; /* Rosa pastell */
-    color: #6a4c93;
+    background: linear-gradient(120deg, #ffcae9, #ffd6b5);
+    color: #4a3563;
 }
 
 .btn-clear:hover {
-    background-color: #ffb6d9;
+    background: linear-gradient(120deg, #ffb6d9, #ffbfa0);
     transform: translateY(-3px);
 }
 

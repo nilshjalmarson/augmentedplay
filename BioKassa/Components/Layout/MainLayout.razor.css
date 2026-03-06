@@ -1,9 +1,18 @@
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .page {
     position: relative;
     display: flex;
     flex-direction: column;
     font-family: 'Quicksand', sans-serif;
-    background-color: #fdf6fa;
+    background: linear-gradient(135deg, #b5deff, #ffcae9, #d4b8ff, #b5deff);
+    background-size: 300% 300%;
+    animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
 }
 
 main {
@@ -54,8 +63,11 @@ main {
 .logo-text {
     font-family: 'Pacifico', cursive;
     font-size: 2.5rem;
-    color: #6a4c93;
-    text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.6);
+    background: linear-gradient(120deg, #6a4c93, #ff8ba7, #4a90d9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
 }
 
 .logo-icon {

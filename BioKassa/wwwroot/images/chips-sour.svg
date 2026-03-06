@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M30 10 Q50 5 70 10 L80 85 Q50 95 20 85 Z" fill="#7ec850"/>
+  <path d="M30 10 Q50 5 70 10 L75 30 Q50 25 25 30 Z" fill="#5eab30"/>
+  <path d="M28 82 Q50 92 72 82 L75 75 Q50 85 25 75 Z" fill="#5eab30"/>
+  <ellipse cx="50" cy="46" rx="18" ry="13" fill="white" opacity="0.3"/>
+  <text x="50" y="41" font-family="Arial Black" font-size="6" fill="#2a5a00" text-anchor="middle" font-weight="900">SOURCREAM</text>
+  <text x="50" y="51" font-family="Arial Black" font-size="6" fill="#2a5a00" text-anchor="middle" font-weight="900">&amp; ONION</text>
+  <ellipse cx="38" cy="62" rx="12" ry="7" fill="#c8e87a" transform="rotate(-20 38 62)"/>
+  <ellipse cx="58" cy="58" rx="11" ry="6" fill="#b8d860" transform="rotate(15 58 58)"/>
+  <ellipse cx="47" cy="72" rx="10" ry="6" fill="#c8e87a" transform="rotate(-10 47 72)"/>
+  <circle cx="35" cy="57" r="2" fill="white" opacity="0.6"/>
+  <circle cx="60" cy="64" r="1.5" fill="white" opacity="0.6"/>
+</svg>

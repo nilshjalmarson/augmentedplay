@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </radialGradient>
+    <radialGradient id="face" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fcd34d"/>
+    </radialGradient>
+  </defs>
+  <!-- Bakgrund -->
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+  <!-- Huvud -->
+  <ellipse cx="50" cy="52" rx="22" ry="25" fill="url(#face)" stroke="#fbbf24" stroke-width="1.5"/>
+  <!-- Ögon -->
+  <ellipse cx="42" cy="48" rx="3" ry="3.5" fill="#7c3aed"/>
+  <ellipse cx="58" cy="48" rx="3" ry="3.5" fill="#7c3aed"/>
+  <circle cx="43" cy="47" r="1" fill="white"/>
+  <circle cx="59" cy="47" r="1" fill="white"/>
+  <!-- Mun -->
+  <path d="M43 60 Q50 66 57 60" stroke="#f97316" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Hår (fluffigt och färgglatt) -->
+  <!-- Bas -->
+  <ellipse cx="50" cy="28" rx="24" ry="16" fill="#c084fc"/>
+  <!-- Slingor -->
+  <path d="M26 35 Q18 20 28 12 Q38 4 48 18" fill="#e879f9"/>
+  <path d="M74 35 Q82 20 72 12 Q62 4 52 18" fill="#a855f7"/>
+  <path d="M32 42 Q22 55 18 45 Q14 35 26 32" fill="#c084fc"/>
+  <path d="M68 42 Q78 55 82 45 Q86 35 74 32" fill="#a855f7"/>
+  <!-- Hårlock på toppen -->
+  <path d="M40 16 Q50 5 60 16 Q55 8 50 6 Q45 8 40 16 Z" fill="#e879f9"/>
+  <!-- Sax -->
+  <g transform="translate(65, 15) rotate(30)">
+    <rect x="-1" y="-18" width="2.5" height="20" rx="1" fill="#94a3b8"/>
+    <rect x="3" y="-18" width="2.5" height="20" rx="1" fill="#94a3b8"/>
+    <circle cx="0" cy="-18" r="4" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <circle cx="4" cy="-18" r="4" fill="none" stroke="#94a3b8" stroke-width="2"/>
+  </g>
+  <!-- Kam -->
+  <rect x="5" y="65" width="25" height="5" rx="2.5" fill="#f9a8d4" stroke="#f472b6" stroke-width="1"/>
+  <rect x="7" y="60" width="3" height="7" rx="1.5" fill="#f9a8d4"/>
+  <rect x="12" y="60" width="3" height="7" rx="1.5" fill="#f9a8d4"/>
+  <rect x="17" y="60" width="3" height="7" rx="1.5" fill="#f9a8d4"/>
+  <rect x="22" y="60" width="3" height="7" rx="1.5" fill="#f9a8d4"/>
+  <!-- Glitter -->
+  <text x="5" y="35" font-size="10">✨</text>
+  <text x="75" y="65" font-size="10">⭐</text>
+</svg>

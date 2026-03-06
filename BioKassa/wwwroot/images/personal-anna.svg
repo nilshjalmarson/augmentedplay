@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#f0f4ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </radialGradient>
+    <radialGradient id="skin" cx="48%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#feebd4"/>
+      <stop offset="100%" stop-color="#f0b887"/>
+    </radialGradient>
+    <linearGradient id="hair" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#5c3d1e"/>
+      <stop offset="100%" stop-color="#3b2010"/>
+    </linearGradient>
+    <linearGradient id="blus" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+
+  <!-- Blus (klassisk ljusblå) -->
+  <path d="M20 100 Q22 74 44 71 L44 76 Q50 79 56 76 L56 71 Q78 74 80 100 Z" fill="url(#blus)" stroke="#a5b4fc" stroke-width="1"/>
+  <!-- Blusens krage (liten spetsig krage) -->
+  <path d="M44 71 L46 67 L50 70 L54 67 L56 71" stroke="#818cf8" stroke-width="1" fill="#e0e7ff"/>
+  <!-- Blusen knappar -->
+  <circle cx="50" cy="76" r="1" fill="#818cf8"/>
+  <circle cx="50" cy="81" r="1" fill="#818cf8"/>
+  <circle cx="50" cy="86" r="1" fill="#818cf8"/>
+
+  <!-- Hals -->
+  <path d="M44 70 Q50 73 56 70 L55 63 Q50 65 45 63 Z" fill="url(#skin)"/>
+
+  <!-- Huvud -->
+  <ellipse cx="50" cy="47" rx="19" ry="21" fill="url(#skin)"/>
+
+  <!-- Hår – uppknutet, snyggt -->
+  <!-- Baksida hår (mörkt) -->
+  <ellipse cx="50" cy="32" rx="20" ry="12" fill="url(#hair)"/>
+  <!-- Sidohår (lite vid öronen) -->
+  <path d="M31 40 C29 36 30 30 33 32 C32 36 32 44 33 48 Z" fill="url(#hair)"/>
+  <path d="M69 40 C71 36 70 30 67 32 C68 36 68 44 67 48 Z" fill="url(#hair)"/>
+  <!-- Framhår (elegant, slät, mittsöndring) -->
+  <path d="M31 38 C33 27 42 23 50 24 C58 23 67 27 69 38 C64 32 55 30 50 30 C45 30 36 32 31 38 Z" fill="url(#hair)"/>
+  <!-- Mittsöndring -->
+  <line x1="50" y1="24" x2="50" y2="32" stroke="#3b2010" stroke-width="0.8" opacity="0.5"/>
+  <!-- Knut/bulle uppe på huvudet -->
+  <ellipse cx="50" cy="22" rx="10" ry="7" fill="url(#hair)"/>
+  <ellipse cx="50" cy="20" rx="8" ry="5" fill="#4a2e14"/>
+  <!-- Hårnål i knuten -->
+  <line x1="44" y1="20" x2="56" y2="20" stroke="#c7d2fe" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="44" cy="20" r="1.5" fill="#818cf8"/>
+  <circle cx="56" cy="20" r="1.5" fill="#818cf8"/>
+  <!-- Hårglans -->
+  <path d="M34 30 C38 25 50 23 60 27" stroke="#8b6040" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round"/>
+
+  <!-- SMINK – diskret och klassiskt -->
+  <!-- Ögonbryn (välformade, naturliga) -->
+  <path d="M31 40 C33 38 38 38 41 40" stroke="#4a2e14" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <path d="M59 40 C62 38 67 38 69 40" stroke="#4a2e14" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+
+  <!-- Ögon (mandel-formade, diskret eyeliner) -->
+  <path d="M31 45 C33 42 38 42 41 44 C38 47 33 47 31 45 Z" fill="white"/>
+  <circle cx="36" cy="44.5" r="2.8" fill="#5b7a9a"/>
+  <circle cx="36" cy="44.5" r="1.6" fill="#1a2a3a"/>
+  <circle cx="37" cy="43.5" r="0.7" fill="white"/>
+  <!-- Tunn eyeliner vänster -->
+  <path d="M31 45 C33 43 38 42 41 44" stroke="#1a1a1a" stroke-width="0.8" fill="none"/>
+  <!-- Fransar vänster (fina) -->
+  <line x1="32" y1="44" x2="31" y2="42" stroke="#1a1a1a" stroke-width="0.7"/>
+  <line x1="35" y1="43" x2="34" y2="41" stroke="#1a1a1a" stroke-width="0.7"/>
+  <line x1="38" y1="43" x2="38" y2="41" stroke="#1a1a1a" stroke-width="0.7"/>
+  <line x1="40" y1="43.5" x2="41" y2="41.5" stroke="#1a1a1a" stroke-width="0.7"/>
+
+  <path d="M59 45 C61 42 66 42 69 44 C66 47 61 47 59 45 Z" fill="white"/>
+  <circle cx="64" cy="44.5" r="2.8" fill="#5b7a9a"/>
+  <circle cx="64" cy="44.5" r="1.6" fill="#1a2a3a"/>
+  <circle cx="65" cy="43.5" r="0.7" fill="white"/>
+  <!-- Tunn eyeliner höger -->
+  <path d="M59 45 C61 43 66 42 69 44" stroke="#1a1a1a" stroke-width="0.8" fill="none"/>
+  <!-- Fransar höger -->
+  <line x1="60" y1="44" x2="59" y2="42" stroke="#1a1a1a" stroke-width="0.7"/>
+  <line x1="63" y1="43" x2="62" y2="41" stroke="#1a1a1a" stroke-width="0.7"/>
+  <line x1="66" y1="43" x2="66" y2="41" stroke="#1a1a1a" stroke-width="0.7"/>
+  <line x1="68" y1="43.5" x2="69" y2="41.5" stroke="#1a1a1a" stroke-width="0.7"/>
+
+  <!-- Subtil blush -->
+  <ellipse cx="30" cy="50" rx="5" ry="3.5" fill="#fda4af" opacity="0.3"/>
+  <ellipse cx="70" cy="50" rx="5" ry="3.5" fill="#fda4af" opacity="0.3"/>
+
+  <!-- Näsa (subtil) -->
+  <path d="M47 53 C48 55 52 55 53 53" stroke="#d4895a" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+
+  <!-- Naturliga läppar (diskret rosa) -->
+  <path d="M41 59 C44 57.5 47 57 50 57.5 C53 57 56 57.5 59 59 C56 62 53 63 50 62.5 C47 63 44 62 41 59 Z" fill="#f0a0b0"/>
+  <path d="M41 59 C46 58 54 58 59 59" stroke="#d4607a" stroke-width="0.5" fill="none"/>
+  <path d="M44 58 C47 57 53 57 56 58" stroke="white" stroke-width="0.6" fill="none" opacity="0.4" stroke-linecap="round"/>
+
+  <!-- Örhängen (klassiska pärlörhängen) -->
+  <circle cx="31" cy="50" r="3" fill="white" stroke="#c7d2fe" stroke-width="0.8"/>
+  <circle cx="31" cy="50" r="1.8" fill="#e0e7ff"/>
+  <circle cx="69" cy="50" r="3" fill="white" stroke="#c7d2fe" stroke-width="0.8"/>
+  <circle cx="69" cy="50" r="1.8" fill="#e0e7ff"/>
+
+  <!-- Namnbricka -->
+  <rect x="31" y="84" width="38" height="12" rx="6" fill="#6366f1"/>
+  <text x="50" y="93.5" text-anchor="middle" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">Anna</text>
+</svg>

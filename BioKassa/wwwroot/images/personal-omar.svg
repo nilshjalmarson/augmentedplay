@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </radialGradient>
+    <radialGradient id="skin" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </radialGradient>
+  </defs>
+  <!-- Bakgrund -->
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+  <!-- Kropp (vit spa-rock) -->
+  <path d="M20 100 Q20 68 50 66 Q80 68 80 100 Z" fill="white" stroke="#bfdbfe" stroke-width="1"/>
+  <!-- Krage -->
+  <path d="M40 66 Q50 72 60 66" stroke="#60a5fa" stroke-width="2" fill="none"/>
+  <!-- Huvud -->
+  <ellipse cx="50" cy="47" rx="21" ry="23" fill="url(#skin)"/>
+  <!-- Kort hår (mörkt) -->
+  <ellipse cx="50" cy="28" rx="21" ry="12" fill="#1c1917"/>
+  <ellipse cx="30" cy="36" rx="8" ry="10" fill="#1c1917"/>
+  <ellipse cx="70" cy="36" rx="8" ry="10" fill="#1c1917"/>
+  <!-- Skäggstubble -->
+  <ellipse cx="50" cy="62" rx="14" ry="5" fill="#1c1917" opacity="0.2"/>
+  <!-- Ögon -->
+  <ellipse cx="43" cy="46" rx="3.5" ry="3.5" fill="#1e3a5f"/>
+  <ellipse cx="57" cy="46" rx="3.5" ry="3.5" fill="#1e3a5f"/>
+  <circle cx="44" cy="45" r="1.2" fill="white"/>
+  <circle cx="58" cy="45" r="1.2" fill="white"/>
+  <!-- Ögonbryn -->
+  <path d="M39 41 Q43 39 47 41" stroke="#1c1917" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M53 41 Q57 39 61 41" stroke="#1c1917" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Kindrosor -->
+  <circle cx="37" cy="52" r="5" fill="#fca5a5" opacity="0.4"/>
+  <circle cx="63" cy="52" r="5" fill="#fca5a5" opacity="0.4"/>
+  <!-- Mun (leende) -->
+  <path d="M43 58 Q50 64 57 58" stroke="#7c3aed" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Händer (starka) -->
+  <ellipse cx="20" cy="78" rx="8" ry="6" fill="url(#skin)" transform="rotate(-20 20 78)"/>
+  <ellipse cx="80" cy="78" rx="8" ry="6" fill="url(#skin)" transform="rotate(20 80 78)"/>
+  <!-- Vågor (massage) -->
+  <path d="M8 55 Q13 50 18 55 Q23 60 28 55" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M72 55 Q77 50 82 55 Q87 60 92 55" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.7"/>
+  <!-- Namn-skylt -->
+  <rect x="31" y="80" width="38" height="14" rx="7" fill="#3b82f6"/>
+  <text x="50" y="91" text-anchor="middle" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">Omar</text>
+</svg>

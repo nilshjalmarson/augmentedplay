@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect x="15" y="18" width="70" height="16" rx="6" fill="#f5a623"/>
+  <rect x="15" y="22" width="70" height="8" rx="0" fill="#e8962a"/>
+  <text x="50" y="30" font-family="Arial Black, sans-serif" font-size="7" fill="white" text-anchor="middle" font-weight="900">CHOKLAD</text>
+  <rect x="15" y="30" width="70" height="52" rx="6" fill="#7b3f00"/>
+  <rect x="20" y="35" width="26" height="20" rx="4" fill="#6a3500"/>
+  <rect x="54" y="35" width="26" height="20" rx="4" fill="#6a3500"/>
+  <rect x="20" y="60" width="26" height="18" rx="4" fill="#6a3500"/>
+  <rect x="54" y="60" width="26" height="18" rx="4" fill="#6a3500"/>
+  <rect x="22" y="37" width="10" height="4" rx="2" fill="#9b5a20" opacity="0.5"/>
+  <rect x="56" y="37" width="10" height="4" rx="2" fill="#9b5a20" opacity="0.5"/>
+</svg>

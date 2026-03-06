@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M30 10 Q50 5 70 10 L80 85 Q50 95 20 85 Z" fill="#ffd700"/>
+  <path d="M30 10 Q50 5 70 10 L75 30 Q50 25 25 30 Z" fill="#e6b800"/>
+  <path d="M28 82 Q50 92 72 82 L75 75 Q50 85 25 75 Z" fill="#e6b800"/>
+  <ellipse cx="50" cy="48" rx="18" ry="12" fill="white" opacity="0.25"/>
+  <text x="50" y="44" font-family="Arial Black" font-size="8" fill="#7a5000" text-anchor="middle" font-weight="900">SALTED</text>
+  <ellipse cx="38" cy="60" rx="12" ry="7" fill="#f5d488" transform="rotate(-20 38 60)"/>
+  <ellipse cx="58" cy="56" rx="11" ry="6" fill="#e8c56a" transform="rotate(15 58 56)"/>
+  <ellipse cx="47" cy="70" rx="10" ry="6" fill="#f5d488" transform="rotate(-10 47 70)"/>
+  <circle cx="35" cy="55" r="2" fill="white" opacity="0.6"/>
+  <circle cx="60" cy="62" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="50" cy="50" r="1.5" fill="white" opacity="0.6"/>
+</svg>

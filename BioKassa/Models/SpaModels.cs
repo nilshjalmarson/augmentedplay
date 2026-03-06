@@ -22,6 +22,8 @@ public class Behandling
     public TimeSpan Varaktighet { get; set; }
     public string Beskrivning { get; set; } = string.Empty;
     public string Ikon { get; set; } = string.Empty;
+    public string IkonBild { get; set; } = string.Empty;
+    public int Betyg { get; set; } = 0;
 }
 
 public class SpaAnställd
@@ -31,6 +33,7 @@ public class SpaAnställd
     public string Roll { get; set; } = string.Empty;
     public List<BehandlingTyp> Kompetenser { get; set; } = new();
     public string Avatar { get; set; } = string.Empty;
+    public string AvatarBild { get; set; } = string.Empty;
 }
 
 public class SpaBooking

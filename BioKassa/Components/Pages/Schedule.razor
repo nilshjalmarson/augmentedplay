@@ -28,7 +28,16 @@
         var personBokningar = bokningar.Where(b => b.Anställd.Id == person.Id).ToList();
         <div class="schedule-card">
             <div class="schedule-card-header">
-                <div class="staff-avatar">@person.Avatar</div>
+                <div class="staff-avatar">
+                    @if (!string.IsNullOrEmpty(person.AvatarBild))
+                    {
+                        <img src="@person.AvatarBild" alt="@person.Namn" class="staff-avatar-bild"/>
+                    }
+                    else
+                    {
+                        @person.Avatar
+                    }
+                </div>
                 <div>
                     <div class="staff-name">@person.Namn</div>
                     <div class="staff-role">@person.Roll</div>

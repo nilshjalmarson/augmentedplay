@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="100%" stop-color="#6ee7b7"/>
+    </radialGradient>
+    <radialGradient id="skin" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </radialGradient>
+  </defs>
+  <!-- Bakgrund -->
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+  <!-- Kropp (turkos spa-rock) -->
+  <path d="M22 100 Q22 70 50 68 Q78 70 78 100 Z" fill="#99f6e4" stroke="#5eead4" stroke-width="1"/>
+  <!-- Krage -->
+  <path d="M42 68 Q50 74 58 68" stroke="#14b8a6" stroke-width="2" fill="none"/>
+  <!-- Huvud -->
+  <ellipse cx="50" cy="48" rx="20" ry="22" fill="url(#skin)"/>
+  <!-- Hår (mörkt, axellångt) -->
+  <ellipse cx="50" cy="31" rx="22" ry="13" fill="#44403c"/>
+  <rect x="28" y="30" width="9" height="28" rx="4.5" fill="#44403c"/>
+  <rect x="63" y="30" width="9" height="28" rx="4.5" fill="#44403c"/>
+  <!-- Hårparting -->
+  <line x1="50" y1="22" x2="50" y2="32" stroke="#292524" stroke-width="1.5"/>
+  <!-- Ögon (stora och glada) -->
+  <ellipse cx="43" cy="46" rx="3.5" ry="4" fill="#064e3b"/>
+  <ellipse cx="57" cy="46" rx="3.5" ry="4" fill="#064e3b"/>
+  <circle cx="44" cy="44.5" r="1.2" fill="white"/>
+  <circle cx="58" cy="44.5" r="1.2" fill="white"/>
+  <!-- Ögonbryn -->
+  <path d="M39 41 Q43 39 47 41" stroke="#44403c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M53 41 Q57 39 61 41" stroke="#44403c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Kindrosor -->
+  <circle cx="38" cy="52" r="5" fill="#86efac" opacity="0.5"/>
+  <circle cx="62" cy="52" r="5" fill="#86efac" opacity="0.5"/>
+  <!-- Mun (stort leende) -->
+  <path d="M43 57 Q50 64 57 57" stroke="#f97316" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Tänder -->
+  <path d="M44 58 Q50 63 56 58 Q53 62 50 62 Q47 62 44 58 Z" fill="white"/>
+  <!-- Bubbelpool-ikon (litet) i handen -->
+  <circle cx="15" cy="70" r="8" fill="#5eead4" opacity="0.8"/>
+  <circle cx="12" cy="68" r="2" fill="white" opacity="0.7"/>
+  <circle cx="18" cy="66" r="2.5" fill="white" opacity="0.7"/>
+  <circle cx="15" cy="72" r="1.5" fill="white" opacity="0.6"/>
+  <!-- Stjärna -->
+  <text x="74" y="22" font-size="14">⭐</text>
+  <!-- Namn-skylt -->
+  <rect x="32" y="80" width="36" height="14" rx="7" fill="#10b981"/>
+  <text x="50" y="91" text-anchor="middle" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">Sara</text>
+</svg>

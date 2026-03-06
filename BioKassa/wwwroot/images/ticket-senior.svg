@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Biljettbakgrund -->
+  <rect x="8" y="25" width="84" height="50" rx="8" fill="#d4b8ff"/>
+  <!-- Vänster hål -->
+  <circle cx="8" cy="50" r="7" fill="#f0eaff"/>
+  <!-- Höger hål -->
+  <circle cx="92" cy="50" r="7" fill="#f0eaff"/>
+  <!-- Streckad mittlinje -->
+  <line x1="22" y1="50" x2="78" y2="50" stroke="white" stroke-width="2" stroke-dasharray="5,4"/>
+  <!-- Övre del -->
+  <text x="50" y="44" font-family="Arial Black" font-size="7" fill="#4a3563" text-anchor="middle" font-weight="900">BIBBLIX BIO</text>
+  <text x="50" y="42" font-size="10" text-anchor="middle" dy="-8">💜</text>
+  <!-- Undre del -->
+  <text x="50" y="66" font-family="Arial Black" font-size="9" fill="#4a3563" text-anchor="middle" font-weight="900">PENSIONÄR</text>
+  <!-- Dekorativa prickar -->
+  <circle cx="25" cy="38" r="2" fill="white" opacity="0.6"/>
+  <circle cx="75" cy="38" r="2" fill="white" opacity="0.6"/>
+  <circle cx="25" cy="62" r="2" fill="white" opacity="0.6"/>
+  <circle cx="75" cy="62" r="2" fill="white" opacity="0.6"/>
+</svg>

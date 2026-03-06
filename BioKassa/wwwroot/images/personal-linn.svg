@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fce7f3"/>
+      <stop offset="100%" stop-color="#f9a8d4"/>
+    </radialGradient>
+    <radialGradient id="skin" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fcd34d"/>
+    </radialGradient>
+  </defs>
+  <!-- Bakgrund -->
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+  <!-- Kropp (vit spa-rock) -->
+  <path d="M22 100 Q22 70 50 68 Q78 70 78 100 Z" fill="white" stroke="#e9d5ff" stroke-width="1"/>
+  <!-- Krage -->
+  <path d="M42 68 Q50 74 58 68" stroke="#c084fc" stroke-width="2" fill="none"/>
+  <!-- Huvud -->
+  <ellipse cx="50" cy="48" rx="20" ry="22" fill="url(#skin)"/>
+  <!-- Långt hår (ljusbrunt) -->
+  <ellipse cx="50" cy="32" rx="22" ry="14" fill="#92400e"/>
+  <rect x="28" y="30" width="10" height="35" rx="5" fill="#92400e"/>
+  <rect x="62" y="30" width="10" height="35" rx="5" fill="#92400e"/>
+  <!-- Ögon -->
+  <ellipse cx="43" cy="46" rx="3" ry="3.5" fill="#1e3a5f"/>
+  <ellipse cx="57" cy="46" rx="3" ry="3.5" fill="#1e3a5f"/>
+  <circle cx="44" cy="45" r="1" fill="white"/>
+  <circle cx="58" cy="45" r="1" fill="white"/>
+  <!-- Ögonfransar -->
+  <line x1="40" y1="43" x2="42" y2="41" stroke="#1e3a5f" stroke-width="1.2"/>
+  <line x1="43" y1="42" x2="43" y2="40" stroke="#1e3a5f" stroke-width="1.2"/>
+  <line x1="46" y1="43" x2="48" y2="41" stroke="#1e3a5f" stroke-width="1.2"/>
+  <line x1="54" y1="43" x2="52" y2="41" stroke="#1e3a5f" stroke-width="1.2"/>
+  <line x1="57" y1="42" x2="57" y2="40" stroke="#1e3a5f" stroke-width="1.2"/>
+  <line x1="60" y1="43" x2="62" y2="41" stroke="#1e3a5f" stroke-width="1.2"/>
+  <!-- Kindrosor -->
+  <circle cx="38" cy="52" r="5" fill="#f9a8d4" opacity="0.5"/>
+  <circle cx="62" cy="52" r="5" fill="#f9a8d4" opacity="0.5"/>
+  <!-- Mun -->
+  <path d="M44 57 Q50 62 56 57" stroke="#f97316" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Spa-pannband -->
+  <path d="M30 36 Q50 28 70 36" stroke="#e879f9" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Blomma på pannband -->
+  <circle cx="50" cy="30" r="5" fill="#fbbf24"/>
+  <circle cx="45" cy="26" r="4" fill="#f9a8d4"/>
+  <circle cx="55" cy="26" r="4" fill="#f9a8d4"/>
+  <circle cx="45" cy="34" r="4" fill="#f9a8d4"/>
+  <circle cx="55" cy="34" r="4" fill="#f9a8d4"/>
+  <circle cx="50" cy="30" r="3" fill="#fbbf24"/>
+  <!-- Namn-skylt -->
+  <rect x="32" y="80" width="36" height="14" rx="7" fill="#c084fc"/>
+  <text x="50" y="91" text-anchor="middle" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">Linn</text>
+</svg>

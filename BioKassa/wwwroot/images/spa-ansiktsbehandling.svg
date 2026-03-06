@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fce7f3"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </radialGradient>
+    <radialGradient id="skin" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </radialGradient>
+    <radialGradient id="mask" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#bbf7d0"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Bakgrund -->
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+
+  <!-- Hals -->
+  <rect x="43" y="72" width="14" height="12" rx="4" fill="url(#skin)"/>
+
+  <!-- Kropp (vit badrock) -->
+  <path d="M20 100 Q20 78 50 76 Q80 78 80 100 Z" fill="white" stroke="#e9d5ff" stroke-width="1.5"/>
+  <path d="M44 76 Q50 82 56 76" stroke="#c084fc" stroke-width="2" fill="none"/>
+
+  <!-- Huvud (ansikte) -->
+  <ellipse cx="50" cy="55" rx="21" ry="22" fill="url(#skin)"/>
+
+  <!-- Ansiktsmask (grön) -->
+  <ellipse cx="50" cy="57" rx="18" ry="17" fill="url(#mask)" opacity="0.88"/>
+  <!-- Mask-struktur (lite struktur) -->
+  <ellipse cx="50" cy="57" rx="15" ry="13" fill="#86efac" opacity="0.4"/>
+
+  <!-- Turban -->
+  <!-- Bas av turban -->
+  <ellipse cx="50" cy="37" rx="23" ry="13" fill="#f9a8d4"/>
+  <!-- Turban-veck -->
+  <path d="M27 37 Q50 28 73 37 Q60 32 50 31 Q40 32 27 37 Z" fill="#f472b6"/>
+  <path d="M29 40 Q50 33 71 40 Q60 36 50 35 Q40 36 29 40 Z" fill="#ec4899"/>
+  <!-- Turban-knut på sidan -->
+  <ellipse cx="72" cy="38" rx="8" ry="6" fill="#f9a8d4" stroke="#f472b6" stroke-width="1"/>
+  <ellipse cx="72" cy="38" rx="5" ry="4" fill="#ec4899"/>
+  <!-- Turban täcker toppen av ansiktet -->
+  <rect x="27" y="38" width="46" height="8" fill="#f9a8d4"/>
+
+  <!-- Ögon (stängda / avslappnade med gurkor ovanpå) -->
+  <!-- Vänster öga -->
+  <path d="M36 54 Q40 57 44 54" stroke="#a16207" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Höger öga -->
+  <path d="M56 54 Q60 57 64 54" stroke="#a16207" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Gurkor på ögonen -->
+  <!-- Vänster gurka -->
+  <ellipse cx="40" cy="53" rx="9" ry="5.5" fill="#4ade80" stroke="#16a34a" stroke-width="1.2"/>
+  <ellipse cx="40" cy="53" rx="7" ry="4" fill="#86efac" opacity="0.6"/>
+  <line x1="40" y1="48" x2="40" y2="58" stroke="#16a34a" stroke-width="0.8"/>
+  <line x1="35" y1="53" x2="45" y2="53" stroke="#16a34a" stroke-width="0.8"/>
+  <line x1="36" y1="50" x2="44" y2="56" stroke="#16a34a" stroke-width="0.5"/>
+  <line x1="36" y1="56" x2="44" y2="50" stroke="#16a34a" stroke-width="0.5"/>
+  <!-- Höger gurka -->
+  <ellipse cx="60" cy="53" rx="9" ry="5.5" fill="#4ade80" stroke="#16a34a" stroke-width="1.2"/>
+  <ellipse cx="60" cy="53" rx="7" ry="4" fill="#86efac" opacity="0.6"/>
+  <line x1="60" y1="48" x2="60" y2="58" stroke="#16a34a" stroke-width="0.8"/>
+  <line x1="55" y1="53" x2="65" y2="53" stroke="#16a34a" stroke-width="0.8"/>
+  <line x1="56" y1="50" x2="64" y2="56" stroke="#16a34a" stroke-width="0.5"/>
+  <line x1="56" y1="56" x2="64" y2="50" stroke="#16a34a" stroke-width="0.5"/>
+
+  <!-- Näsa (liten) -->
+  <ellipse cx="50" cy="63" rx="3" ry="2" fill="#d97706" opacity="0.35"/>
+
+  <!-- Mun (avslappnat leende) -->
+  <path d="M44 69 Q50 74 56 69" stroke="#d97706" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+  <!-- Kindrosor -->
+  <circle cx="34" cy="62" r="5" fill="#fda4af" opacity="0.45"/>
+  <circle cx="66" cy="62" r="5" fill="#fda4af" opacity="0.45"/>
+
+  <!-- Stjärnor -->
+  <text x="8" y="22" font-size="11">✨</text>
+  <text x="76" y="18" font-size="9">✨</text>
+</svg>
