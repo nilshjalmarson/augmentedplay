@@ -45,6 +45,26 @@ jobs:
         env:
           APP_RUNNER_SERVICE_ARN: ${{ secrets.APP_RUNNER_SERVICE_ARN }}
         run: |
+          STATUS=$(aws apprunner describe-service \
+            --service-arn "$APP_RUNNER_SERVICE_ARN" \
+            --region "$AWS_REGION" \
+            --query "Service.Status" \
+            --output text)
+
+          echo "App Runner service status: $STATUS"
+
+          if [ "$STATUS" = "PAUSED" ]; then
+            echo "Service is paused, resuming..."
+            aws apprunner resume-service \
+              --service-arn "$APP_RUNNER_SERVICE_ARN" \
+              --region "$AWS_REGION"
+
+            echo "Waiting for service to reach RUNNING state..."
+            aws apprunner wait service-running \
+              --service-arn "$APP_RUNNER_SERVICE_ARN" \
+              --region "$AWS_REGION"
+          fi
+
           aws apprunner start-deployment \
             --service-arn "$APP_RUNNER_SERVICE_ARN" \
             --region "$AWS_REGION"
